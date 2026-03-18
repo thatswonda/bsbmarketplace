@@ -9,18 +9,19 @@ const categories = [
 ];
 
 const CategoriesSection = () => (
-  <section className="py-24" style={{ background: "var(--hero-gradient)" }}>
-    <div className="max-w-6xl mx-auto px-6">
+  <section className="py-16 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <motion.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl sm:text-4xl font-bold text-foreground mb-12"
+        className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-8 sm:mb-12"
       >
         Categories of Activities
       </motion.h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {/* Desktop: 4 columns */}
+      <div className="hidden md:grid grid-cols-4 gap-6">
         {categories.map((cat, i) => (
           <motion.div
             key={cat.label}
@@ -39,6 +40,27 @@ const CategoriesSection = () => (
             </div>
             <h3 className="font-semibold text-foreground mb-2">{cat.label}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{cat.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Mobile: 2x2 compact grid with paired icons */}
+      <div className="grid grid-cols-2 gap-4 md:hidden">
+        {categories.map((cat, i) => (
+          <motion.div
+            key={cat.label}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.06 }}
+            className="flex flex-col items-center text-center p-5 bg-card rounded-2xl cursor-pointer"
+            style={{ boxShadow: "var(--card-shadow)" }}
+          >
+            <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center mb-3">
+              <cat.icon className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="text-sm font-semibold text-foreground mb-1">{cat.label}</h3>
+            <p className="text-[11px] text-muted-foreground leading-snug">{cat.desc}</p>
           </motion.div>
         ))}
       </div>
