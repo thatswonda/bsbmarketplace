@@ -12,25 +12,25 @@ const items = [
 ];
 
 const ChecklistSection = () => (
-  <section className="py-24" style={{ background: "var(--hero-gradient)" }}>
-    <div className="max-w-4xl mx-auto px-6">
+  <section className="py-16 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-card rounded-[24px] p-8 sm:p-12"
+        className="bg-card rounded-[20px] sm:rounded-[24px] p-6 sm:p-12"
         style={{ boxShadow: "var(--card-shadow)" }}
       >
-        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-6 sm:mb-8 text-center">
           Everything you need, one platform
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {items.map((item) => (
-            <div key={item} className="flex items-start gap-3">
-              <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
-                <Check className="w-4 h-4 text-primary-foreground" />
+            <div key={item} className="flex items-start gap-2.5 sm:gap-3">
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Check className="w-3 h-3 sm:w-4 sm:h-4 text-primary-foreground" />
               </div>
-              <span className="text-foreground font-medium">{item}</span>
+              <span className="text-sm sm:text-base text-foreground font-medium">{item}</span>
             </div>
           ))}
         </div>
