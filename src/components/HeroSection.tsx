@@ -29,7 +29,7 @@ const floatAnimation = (delay: number, x: number, y: number) => ({
       opacity: { duration: 0.6, delay },
       scale: { duration: 0.6, delay },
       x: { duration: 0.6, delay },
-      y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: delay + 0.6 },
+      y: { duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: delay + 0.6 },
     },
   },
 });
