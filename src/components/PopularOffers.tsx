@@ -1,32 +1,32 @@
 import { motion } from "framer-motion";
+import { Eye, Heart, Share2 } from "lucide-react";
 import spaImg from "@/assets/service-spa.jpg";
 import photoImg from "@/assets/service-photography.jpg";
 import webdevImg from "@/assets/service-webdev.jpg";
+import fitnessImg from "@/assets/service-fitness.jpg";
 
 const offers = [
-  { img: spaImg, title: "Luxury Spa", desc: "Premium wellness and relaxation treatments for your body and mind.", price: "$30", views: "17,223" },
+  { img: spaImg, title: "Luxury Spa", desc: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt.", price: "$ 30", views: "17 223" },
+  { img: fitnessImg, title: "Fitness Workshop", desc: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt.", price: "$ 90", views: "17 223" },
   { img: photoImg, title: "Professional Photography", desc: "Capture your special moments with expert photographers.", price: "from $100", views: "8,450" },
   { img: webdevImg, title: "Website Development", desc: "Modern, responsive websites built by professional developers.", price: "from $300", views: "12,891" },
 ];
 
 const PopularOffers = () => (
-  <section className="py-16 sm:py-24 bg-card" id="services">
+  <section className="py-6 sm:py-24 bg-card" id="services">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <motion.h2
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4"
+        className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 sm:mb-12"
       >
         Popular Offers
       </motion.h2>
-      <p className="text-muted-foreground mb-8 sm:mb-12 max-w-lg text-sm sm:text-base">
-        Discover top-rated services and goods from trusted sellers in your area and worldwide.
-      </p>
 
-      {/* Desktop: card grid */}
+      {/* Desktop: card grid (first 3) */}
       <div className="hidden md:grid grid-cols-3 gap-8">
-        {offers.map((offer, i) => (
+        {offers.slice(0, 3).map((offer, i) => (
           <motion.div
             key={offer.title}
             initial={{ opacity: 0, y: 20 }}
@@ -58,9 +58,9 @@ const PopularOffers = () => (
         ))}
       </div>
 
-      {/* Mobile: horizontal list items (image left, text right) */}
+      {/* Mobile: horizontal list items matching reference */}
       <div className="flex flex-col gap-4 md:hidden">
-        {offers.map((offer, i) => (
+        {offers.slice(0, 2).map((offer, i) => (
           <motion.div
             key={offer.title}
             initial={{ opacity: 0, y: 16 }}
@@ -73,14 +73,21 @@ const PopularOffers = () => (
             <img
               src={offer.img}
               alt={offer.title}
-              className="w-24 h-20 object-cover rounded-xl flex-shrink-0"
+              className="w-28 h-24 object-cover rounded-xl flex-shrink-0"
             />
-            <div className="flex-1 min-w-0">
-              <h3 className="text-sm font-semibold text-foreground mb-1">{offer.title}</h3>
-              <p className="text-xs text-muted-foreground mb-2 leading-relaxed line-clamp-2">{offer.desc}</p>
+            <div className="flex-1 min-w-0 py-1">
+              <h3 className="text-sm font-bold text-foreground mb-1">{offer.title}</h3>
+              <p className="text-[11px] text-muted-foreground mb-2 leading-relaxed line-clamp-2">{offer.desc}</p>
               <div className="flex items-center justify-between">
-                <span className="text-primary font-bold text-sm">{offer.price}</span>
-                <span className="text-[10px] text-muted-foreground">{offer.views}</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-muted-foreground text-[11px]">{offer.views}</span>
+                  <span className="text-primary font-bold text-sm">{offer.price}</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Eye className="w-3.5 h-3.5 text-primary" />
+                  <Heart className="w-3.5 h-3.5 text-primary" />
+                  <Share2 className="w-3.5 h-3.5 text-primary" />
+                </div>
               </div>
             </div>
           </motion.div>
