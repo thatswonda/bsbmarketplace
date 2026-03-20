@@ -4,8 +4,6 @@ import PopularOffers from "@/components/PopularOffers";
 import CategoriesSection from "@/components/CategoriesSection";
 import ExploreServices from "@/components/ExploreServices";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ChecklistSection from "@/components/ChecklistSection";
-import DownloadSection from "@/components/DownloadSection";
 import Footer from "@/components/Footer";
 
 const Index = () => (
@@ -16,8 +14,6 @@ const Index = () => (
     <CategoriesSection />
     <ExploreServices />
     <TestimonialsSection />
-    <ChecklistSection />
-    <DownloadSection />
     <Footer />
   </div>
 );
