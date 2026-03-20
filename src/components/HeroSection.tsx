@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Transition } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import sellIcon from "@/assets/sell-icon.png";
 import buyIcon from "@/assets/buy-icon.png";
