@@ -8,7 +8,7 @@ import hireIcon from "@/assets/hire-icon.png";
 import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
 import phoneMockup from "@/assets/phone-mockup.png";
-import { Check, Zap } from "lucide-react";
+import { Check } from "lucide-react";
 import {
   Dialog,
   DialogContent,
