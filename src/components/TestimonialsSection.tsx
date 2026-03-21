@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Star, User } from "lucide-react";
 
 const testimonials = [
-  { name: "Sarah M.", title: "Best Experience", text: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.", rating: 5, color: "bg-accent" },
-  { name: "James K.", title: "Amazing Experience", text: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.", rating: 5, color: "bg-orange-100" },
-  { name: "Amara O.", title: "Great Experience", text: "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.", rating: 5, color: "bg-pink-100" },
+  { name: "Sarah M.", title: "Best Experience", text: "BSB Market made it so easy to find exactly what I needed. The platform is smooth and reliable.", rating: 5, color: "bg-accent" },
+  { name: "James K.", title: "Amazing Experience", text: "I sold my products within hours of listing them. Highly recommend this marketplace to everyone.", rating: 5, color: "bg-orange-100" },
+  { name: "Amara O.", title: "Great Experience", text: "Found a professional photographer for my event in minutes. The service quality was outstanding.", rating: 5, color: "bg-pink-100" },
 ];
 
 const TestimonialsSection = () => (

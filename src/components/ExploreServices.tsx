@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { RefreshCw, Eye, Heart, Share2, ChevronLeft, ChevronRight } from "lucide-react";
+import { Eye, Heart, Share2 } from "lucide-react";
 import photoImg from "@/assets/service-photography.jpg";
 import webdevImg from "@/assets/service-webdev.jpg";
 import spaImg from "@/assets/service-spa.jpg";
@@ -26,31 +26,14 @@ const ExploreServices = () => {
   return (
     <section className="py-6 md:hidden bg-card" id="hire">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="flex items-center justify-between mb-4">
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xl font-bold text-foreground"
-          >
-            Explore Our Services
-          </motion.h2>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => scroll("left")}
-              className="w-8 h-8 rounded-full bg-card flex items-center justify-center"
-              style={{ boxShadow: "var(--card-shadow)" }}
-            >
-              <ChevronLeft className="w-4 h-4 text-foreground" />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
-            >
-              <ChevronRight className="w-4 h-4 text-primary-foreground" />
-            </button>
-          </div>
-        </div>
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-xl font-bold text-foreground mb-4"
+        >
+          Explore Our Services
+        </motion.h2>
 
         <div
           ref={scrollRef}

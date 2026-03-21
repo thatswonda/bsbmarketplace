@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import {
   Wrench, ShoppingBag, Briefcase, Car, FileText, Building2,
-  Megaphone, Store, Smartphone, BookOpen, BarChart3, ChevronLeft, ChevronRight
+  Megaphone, Store, Smartphone, BookOpen, BarChart3
 } from "lucide-react";
 
 const categories = [
@@ -39,21 +39,6 @@ const CategoriesSection = () => {
           >
             Categories of Activities
           </motion.h2>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => scroll("left")}
-              className="w-8 h-8 rounded-full bg-card flex items-center justify-center"
-              style={{ boxShadow: "var(--card-shadow)" }}
-            >
-              <ChevronLeft className="w-4 h-4 text-foreground" />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
-            >
-              <ChevronRight className="w-4 h-4 text-primary-foreground" />
-            </button>
-          </div>
         </div>
 
         {/* Slidable row */}

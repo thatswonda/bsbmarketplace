@@ -8,7 +8,7 @@ import hireIcon from "@/assets/hire-icon.png";
 import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
 import phoneMockup from "@/assets/phone-mockup.png";
-import { Check, Zap } from "lucide-react";
+import { Check } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -93,9 +93,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-muted-foreground text-xs sm:text-lg mb-8 sm:mb-16 max-w-xl mx-auto"
           >
-            Sell anything · Buy anything · Hire services · Offer services
-            <br />
-            Get jobs · Network
+            <span className="text-primary font-semibold">Making trade and business easier</span>
           </motion.p>
 
           {/* Phone mockup with floating icons */}
@@ -155,26 +153,7 @@ const HeroSection = () => {
             </svg>
           </div>
 
-          {/* "You can" card */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-card rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 max-w-md mx-auto flex items-center gap-3"
-            style={{ boxShadow: "var(--card-shadow)" }}
-          >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
-              <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-            </div>
-            <div className="text-left">
-              <h3 className="text-sm sm:text-lg font-bold text-foreground">You can</h3>
-              <p className="text-[11px] sm:text-sm text-muted-foreground">
-                Sell, Buy, Hire, Offer services, Get jobs &amp; Network — all in one place.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Checklist */}
+          {/* Checklist with "You can" heading */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -182,6 +161,7 @@ const HeroSection = () => {
             className="bg-card rounded-2xl p-5 sm:p-10 mb-6 sm:mb-10 max-w-lg mx-auto"
             style={{ boxShadow: "var(--card-shadow)" }}
           >
+            <h3 className="text-sm sm:text-lg font-bold text-foreground mb-3 text-left">You can</h3>
             <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
               <div className="flex flex-col gap-2.5">
                 {leftItems.map((item) => (
