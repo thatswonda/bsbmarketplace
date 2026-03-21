@@ -47,12 +47,12 @@ const rightItems = ["Get jobs", "Network", "All about business within your locat
 
 // Positions pushed further from phone
 const iconPositions = [
-  { top: "5%", left: "-12%", x: -30, y: -20 },
-  { top: "38%", left: "-16%", x: -40, y: 0 },
-  { bottom: "10%", left: "-12%", x: -30, y: 20 },
-  { top: "5%", right: "-12%", x: 30, y: -20 },
-  { top: "38%", right: "-16%", x: 40, y: 0 },
-  { bottom: "10%", right: "-12%", x: 30, y: 20 },
+  { top: "5%", left: "-6%", x: -30, y: -20 },
+  { top: "38%", left: "-10%", x: -40, y: 0 },
+  { bottom: "10%", left: "-6%", x: -30, y: 20 },
+  { top: "5%", right: "-6%", x: 30, y: -20 },
+  { top: "38%", right: "-10%", x: 40, y: 0 },
+  { bottom: "10%", right: "-6%", x: 30, y: 20 },
 ];
 
 const HeroSection = () => {
