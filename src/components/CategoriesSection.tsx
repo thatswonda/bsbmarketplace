@@ -1,115 +1,93 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Briefcase, ShoppingBag, Wrench, Car } from "lucide-react";
+import {
+  Wrench, ShoppingBag, Briefcase, Car, FileText, Building2,
+  Megaphone, Store, Smartphone, BookOpen, BarChart3, ChevronLeft, ChevronRight
+} from "lucide-react";
 
 const categories = [
   { icon: Wrench, label: "Services" },
   { icon: ShoppingBag, label: "Goods" },
+  { icon: FileText, label: "Contracts" },
   { icon: Briefcase, label: "Jobs" },
+  { icon: Building2, label: "Real Estate" },
   { icon: Car, label: "Automobiles" },
+  { icon: Megaphone, label: "Promotions" },
+  { icon: Store, label: "Panteka" },
+  { icon: Smartphone, label: "Gadgets" },
+  { icon: BookOpen, label: "Ebooks" },
+  { icon: BarChart3, label: "Shares" },
 ];
 
-const desktopCategories = [
-  { icon: Wrench, label: "Services", desc: "Find professional services for any project." },
-  { icon: ShoppingBag, label: "Goods", desc: "Browse quality products from verified sellers." },
-  { icon: Briefcase, label: "Jobs", desc: "Discover career opportunities near you." },
-  { icon: Car, label: "Automobiles", desc: "Buy, sell, or rent vehicles with ease." },
-];
+const CategoriesSection = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-const CategoriesSection = () => (
-  <section className="py-6 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
-    <div className="max-w-6xl mx-auto px-4 sm:px-6">
-      <motion.h2
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 sm:mb-12"
-      >
-        Categories of Activities
-      </motion.h2>
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({ left: dir === "left" ? -200 : 200, behavior: "smooth" });
+  };
 
-      {/* Desktop: 4 columns */}
-      <div className="hidden md:grid grid-cols-4 gap-6">
-        {desktopCategories.map((cat, i) => (
-          <motion.div
-            key={cat.label}
-            initial={{ opacity: 0, y: 20 }}
+  return (
+    <section className="py-6 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between mb-4 sm:mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08 }}
-            whileHover={{ y: -4 }}
-            className="flex flex-col items-center text-center p-8 bg-card rounded-[20px] transition-shadow duration-300 cursor-pointer"
-            style={{ boxShadow: "var(--card-shadow)" }}
-            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+            className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground"
           >
-            <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center mb-4">
-              <cat.icon className="w-7 h-7 text-primary" />
-            </div>
-            <h3 className="font-semibold text-foreground mb-2">{cat.label}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">{cat.desc}</p>
-          </motion.div>
-        ))}
+            Categories of Activities
+          </motion.h2>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => scroll("left")}
+              className="w-8 h-8 rounded-full bg-card flex items-center justify-center"
+              style={{ boxShadow: "var(--card-shadow)" }}
+            >
+              <ChevronLeft className="w-4 h-4 text-foreground" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              className="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+            >
+              <ChevronRight className="w-4 h-4 text-primary-foreground" />
+            </button>
+          </div>
+        </div>
+
+        {/* Slidable row */}
+        <div
+          ref={scrollRef}
+          className="flex gap-3 sm:gap-6 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {categories.map((cat, i) => (
+            <motion.div
+              key={cat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              whileHover={{ y: -4 }}
+              className="flex flex-col items-center text-center p-4 sm:p-8 bg-card rounded-2xl sm:rounded-[20px] transition-shadow duration-300 cursor-pointer snap-start flex-shrink-0 w-[100px] sm:w-[160px]"
+              style={{ boxShadow: "var(--card-shadow)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+            >
+              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-accent flex items-center justify-center mb-2 sm:mb-4">
+                <cat.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary" />
+              </div>
+              <h3 className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">{cat.label}</h3>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
-      {/* Mobile: 2 cards, each with 2 icons side by side, matching reference */}
-      <div className="grid grid-cols-2 gap-4 md:hidden">
-        {/* Card 1: Services + Goods */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-card rounded-2xl p-4 flex flex-col items-center text-center"
-          style={{ boxShadow: "var(--card-shadow)" }}
-        >
-          <div className="flex items-center gap-4 mb-3">
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                <Wrench className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-[11px] font-semibold text-foreground">Services</span>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                <ShoppingBag className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-[11px] font-semibold text-foreground">Goods</span>
-            </div>
-          </div>
-          <p className="text-[10px] text-muted-foreground leading-snug">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </motion.div>
-
-        {/* Card 2: Jobs + Automobiles */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.06 }}
-          className="bg-card rounded-2xl p-4 flex flex-col items-center text-center"
-          style={{ boxShadow: "var(--card-shadow)" }}
-        >
-          <div className="flex items-center gap-4 mb-3">
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                <Briefcase className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-[11px] font-semibold text-foreground">Jobs</span>
-            </div>
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
-                <Car className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-[11px] font-semibold text-foreground">Automobiles</span>
-            </div>
-          </div>
-          <p className="text-[10px] text-muted-foreground leading-snug">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-        </motion.div>
-      </div>
-    </div>
-  </section>
-);
+      {/* Hide scrollbar */}
+      <style>{`.scrollbar-hide::-webkit-scrollbar { display: none; }`}</style>
+    </section>
+  );
+};
 
 export default CategoriesSection;

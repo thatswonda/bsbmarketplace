@@ -21,7 +21,7 @@ const PopularOffers = () => (
         viewport={{ once: true }}
         className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 sm:mb-12"
       >
-        Popular Offers
+        Popular Listings
       </motion.h2>
 
       {/* Desktop: card grid (first 3) */}
@@ -58,7 +58,7 @@ const PopularOffers = () => (
         ))}
       </div>
 
-      {/* Mobile: horizontal list items matching reference */}
+      {/* Mobile: horizontal list items */}
       <div className="flex flex-col gap-4 md:hidden">
         {offers.slice(0, 2).map((offer, i) => (
           <motion.div
