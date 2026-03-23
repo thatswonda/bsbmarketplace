@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, type Transition } from "framer-motion";
+import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import sellIcon from "@/assets/sell-icon.png";
 import buyIcon from "@/assets/buy-icon.png";
@@ -8,7 +8,7 @@ import hireIcon from "@/assets/hire-icon.png";
 import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
 import phoneMockup from "@/assets/phone-mockup.png";
-import { Check } from "lucide-react";
+import { Check, Eye, Heart, Share2 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -17,13 +17,80 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
+// Reuse listing images from categories
+import listingGoods1 from "@/assets/listing-goods-1.jpg";
+import listingGoods2 from "@/assets/listing-goods-2.jpg";
+import listingGoods3 from "@/assets/listing-goods-3.jpg";
+import listingGoods4 from "@/assets/listing-goods-4.jpg";
+import listingGadgets1 from "@/assets/listing-gadgets-1.jpg";
+import listingGadgets2 from "@/assets/listing-gadgets-2.jpg";
+import listingGadgets3 from "@/assets/listing-gadgets-3.jpg";
+import listingGadgets4 from "@/assets/listing-gadgets-4.jpg";
+import listingJobs1 from "@/assets/listing-jobs-1.jpg";
+import listingJobs2 from "@/assets/listing-jobs-2.jpg";
+import listingJobs3 from "@/assets/listing-jobs-3.jpg";
+import listingJobs4 from "@/assets/listing-jobs-4.jpg";
+import listingServices1 from "@/assets/listing-services-1.jpg";
+import listingServices2 from "@/assets/listing-services-2.jpg";
+import listingServices3 from "@/assets/listing-services-3.jpg";
+import listingServices4 from "@/assets/listing-services-4.jpg";
+import listingContracts1 from "@/assets/listing-contracts-1.jpg";
+import listingContracts2 from "@/assets/listing-contracts-2.jpg";
+import listingContracts3 from "@/assets/listing-contracts-3.jpg";
+import listingContracts4 from "@/assets/listing-contracts-4.jpg";
+import listingShares1 from "@/assets/listing-shares-1.jpg";
+import listingShares2 from "@/assets/listing-shares-2.jpg";
+import listingShares3 from "@/assets/listing-shares-3.jpg";
+import listingShares4 from "@/assets/listing-shares-4.jpg";
+
+type Listing = { title: string; desc: string; price: string; views: string; img: string };
+
+const featureListings: Record<string, Listing[]> = {
+  Sell: [
+    { title: "Electronics Bundle", desc: "Sell your used electronics — phones, tablets and laptops.", price: "$ 250", views: "8,340", img: listingGoods1 },
+    { title: "Furniture Set", desc: "Premium dining table and chairs set in great condition.", price: "$ 400", views: "5,120", img: listingGoods2 },
+    { title: "Clothing Collection", desc: "Designer clothing items ready for resale at great prices.", price: "$ 120", views: "6,780", img: listingGoods3 },
+    { title: "Home Appliances", desc: "Washing machine, microwave and blender in working order.", price: "$ 350", views: "4,560", img: listingGoods4 },
+  ],
+  Buy: [
+    { title: "iPhone 15 Pro", desc: "Brand new sealed iPhone 15 Pro Max, 256GB storage.", price: "$ 1,100", views: "25,400", img: listingGadgets1 },
+    { title: "HP Laptop", desc: "Core i7 laptop with 16GB RAM and 512GB SSD.", price: "$ 650", views: "18,300", img: listingGadgets2 },
+    { title: "Wireless Earbuds", desc: "AirPods Pro with active noise cancellation.", price: "$ 180", views: "14,200", img: listingGadgets3 },
+    { title: "Smart Watch", desc: "Samsung Galaxy Watch with health tracking features.", price: "$ 220", views: "10,800", img: listingGadgets4 },
+  ],
+  "Get Jobs": [
+    { title: "Software Developer", desc: "Remote full-stack developer role with competitive salary.", price: "$ 2,000/mo", views: "15,620", img: listingJobs1 },
+    { title: "Sales Representative", desc: "Field sales position with commission-based earnings.", price: "$ 800/mo", views: "9,430", img: listingJobs2 },
+    { title: "Graphic Designer", desc: "Creative designer needed for branding and marketing.", price: "$ 1,200/mo", views: "7,890", img: listingJobs3 },
+    { title: "Driver Needed", desc: "Experienced driver for executive transport services.", price: "$ 400/mo", views: "11,200", img: listingJobs4 },
+  ],
+  "Offer Services": [
+    { title: "Home Cleaning", desc: "Professional deep cleaning services for home or office.", price: "$ 50", views: "9,320", img: listingServices1 },
+    { title: "Plumbing Repair", desc: "Expert plumbing solutions for leaks and installations.", price: "$ 40", views: "5,812", img: listingServices2 },
+    { title: "Electrical Work", desc: "Licensed electricians for wiring and repairs.", price: "$ 60", views: "7,105", img: listingServices3 },
+    { title: "Painting Service", desc: "Interior and exterior painting by skilled professionals.", price: "$ 80", views: "4,230", img: listingServices4 },
+  ],
+  "Hire Services": [
+    { title: "Electrician", desc: "Certified electrician for all residential and commercial work.", price: "$ 55", views: "8,100", img: listingContracts1 },
+    { title: "Interior Designer", desc: "Transform your space with professional interior design.", price: "$ 200", views: "6,340", img: listingContracts2 },
+    { title: "Private Driver", desc: "Reliable personal driver for daily commute or trips.", price: "$ 30/day", views: "9,780", img: listingContracts3 },
+    { title: "House Cleaner", desc: "Regular house cleaning with flexible scheduling.", price: "$ 25", views: "7,450", img: listingContracts4 },
+  ],
+  Network: [
+    { title: "Business Groups", desc: "Join exclusive business networking groups in your area.", price: "Free", views: "12,500", img: listingShares1 },
+    { title: "Meetups", desc: "Attend industry meetups and connect with professionals.", price: "Free", views: "8,900", img: listingShares2 },
+    { title: "Partnerships", desc: "Find business partners for joint ventures and projects.", price: "Free", views: "6,340", img: listingShares3 },
+    { title: "Mentorship", desc: "Get paired with experienced mentors in your field.", price: "Free", views: "10,200", img: listingShares4 },
+  ],
+};
+
 const features = [
-  { icon: sellIcon, label: "Sell", listings: ["Electronics", "Furniture", "Clothing", "Home Appliances"] },
-  { icon: buyIcon, label: "Buy", listings: ["Gadgets", "Cars", "Real Estate", "Fashion"] },
-  { icon: jobsIcon, label: "Get Jobs", listings: ["Remote Work", "Part-time", "Freelance", "Full-time"] },
-  { icon: servicesIcon, label: "Offer Services", listings: ["Photography", "Web Dev", "Tutoring", "Plumbing"] },
-  { icon: hireIcon, label: "Hire Services", listings: ["Electrician", "Designer", "Driver", "Cleaner"] },
-  { icon: networkIcon, label: "Network", listings: ["Business Groups", "Meetups", "Partnerships", "Mentorship"] },
+  { icon: sellIcon, label: "Sell" },
+  { icon: buyIcon, label: "Buy" },
+  { icon: jobsIcon, label: "Get Jobs" },
+  { icon: servicesIcon, label: "Offer Services" },
+  { icon: hireIcon, label: "Hire Services" },
+  { icon: networkIcon, label: "Network" },
 ];
 
 const floatAnimation = (delay: number, x: number, y: number) => ({
@@ -45,7 +112,6 @@ const floatAnimation = (delay: number, x: number, y: number) => ({
 const leftItems = ["Sell anything", "Buy anything", "Hire services", "Offer services"];
 const rightItems = ["Get jobs", "Network", "All about business within your location and globally"];
 
-// Positions pushed further from phone
 const iconPositions = [
   { top: "5%", left: "-6%", x: -30, y: -20 },
   { top: "38%", left: "-10%", x: -40, y: 0 },
@@ -56,7 +122,9 @@ const iconPositions = [
 ];
 
 const HeroSection = () => {
-  const [selectedFeature, setSelectedFeature] = useState<typeof features[0] | null>(null);
+  const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
+  const selectedFeature = features.find(f => f.label === selectedLabel);
+  const listings = selectedLabel ? featureListings[selectedLabel] || [] : [];
 
   return (
     <section
@@ -111,14 +179,13 @@ const HeroSection = () => {
               />
             </motion.div>
 
-            {/* Floating feature icons - clickable */}
             {features.map((feature, i) => {
               const pos = iconPositions[i];
               return (
                 <motion.button
                   key={feature.label}
                   {...floatAnimation(0.5 + i * 0.12, pos.x, pos.y)}
-                  onClick={() => setSelectedFeature(feature)}
+                  onClick={() => setSelectedLabel(feature.label)}
                   className="absolute z-20 flex flex-col items-center gap-1 cursor-pointer"
                   style={{
                     top: pos.top,
@@ -144,7 +211,6 @@ const HeroSection = () => {
               );
             })}
 
-            {/* Dashed connecting lines */}
             <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 340 420">
               <motion.path d="M55 50 Q95 100 145 125" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1 }} />
               <motion.path d="M285 50 Q245 100 195 125" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1.2 }} />
@@ -153,7 +219,7 @@ const HeroSection = () => {
             </svg>
           </div>
 
-          {/* Checklist with "You can" heading */}
+          {/* Checklist */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -169,9 +235,7 @@ const HeroSection = () => {
                     <div className="w-5 h-5 rounded bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-primary-foreground" />
                     </div>
-                    <span className="text-xs sm:text-base text-foreground font-medium leading-tight text-left">
-                      {item}
-                    </span>
+                    <span className="text-xs sm:text-base text-foreground font-medium leading-tight text-left">{item}</span>
                   </div>
                 ))}
               </div>
@@ -181,9 +245,7 @@ const HeroSection = () => {
                     <div className="w-5 h-5 rounded bg-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-primary-foreground" />
                     </div>
-                    <span className="text-xs sm:text-base text-foreground font-medium leading-tight text-left">
-                      {item}
-                    </span>
+                    <span className="text-xs sm:text-base text-foreground font-medium leading-tight text-left">{item}</span>
                   </div>
                 ))}
               </div>
@@ -219,26 +281,50 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Feature listings dialog */}
-      <Dialog open={!!selectedFeature} onOpenChange={() => setSelectedFeature(null)}>
-        <DialogContent className="max-w-sm rounded-2xl">
+      {/* Feature listings dialog — same style as Categories */}
+      <Dialog open={!!selectedLabel} onOpenChange={() => setSelectedLabel(null)}>
+        <DialogContent className="max-w-lg sm:max-w-2xl max-h-[80vh] overflow-y-auto rounded-2xl p-4 sm:p-6">
           <DialogHeader>
-            <DialogTitle className="flex items-center gap-3">
+            <DialogTitle className="flex items-center gap-3 text-lg sm:text-2xl font-bold">
               {selectedFeature && (
                 <img src={selectedFeature.icon} alt={selectedFeature.label} className="w-8 h-8 object-contain" />
               )}
               {selectedFeature?.label}
             </DialogTitle>
-            <DialogDescription>Related listings</DialogDescription>
+            <DialogDescription>Browse listings in this category</DialogDescription>
           </DialogHeader>
-          <div className="grid grid-cols-2 gap-3 mt-2">
-            {selectedFeature?.listings.map((listing) => (
-              <div
-                key={listing}
-                className="p-3 bg-accent rounded-xl text-center cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
+
+          <div className="flex flex-col gap-4 mt-4">
+            {listings.map((listing, i) => (
+              <motion.div
+                key={listing.title}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+                className="flex items-start gap-4 p-3 bg-card rounded-2xl cursor-pointer hover:scale-[1.01] transition-transform"
+                style={{ boxShadow: "var(--card-shadow)" }}
               >
-                <span className="text-sm font-medium">{listing}</span>
-              </div>
+                <img
+                  src={listing.img}
+                  alt={listing.title}
+                  className="w-28 h-24 object-cover rounded-xl flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0 py-1">
+                  <h3 className="text-sm font-bold text-foreground mb-1">{listing.title}</h3>
+                  <p className="text-[11px] text-muted-foreground mb-2 leading-relaxed line-clamp-2">{listing.desc}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-muted-foreground text-[11px]">{listing.views}</span>
+                      <span className="text-primary font-bold text-sm">{listing.price}</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Eye className="w-3.5 h-3.5 text-primary" />
+                      <Heart className="w-3.5 h-3.5 text-primary" />
+                      <Share2 className="w-3.5 h-3.5 text-primary" />
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </DialogContent>
