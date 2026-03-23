@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
-import { Star, User } from "lucide-react";
+import { Star } from "lucide-react";
+import testimonialSarah from "@/assets/testimonial-sarah.jpg";
+import testimonialJames from "@/assets/testimonial-james.jpg";
+import testimonialAmara from "@/assets/testimonial-amara.jpg";
 
 const testimonials = [
-  { name: "Sarah M.", title: "Best Experience", text: "BSB Market made it so easy to find exactly what I needed. The platform is smooth and reliable.", rating: 5, color: "bg-accent" },
-  { name: "James K.", title: "Amazing Experience", text: "I sold my products within hours of listing them. Highly recommend this marketplace to everyone.", rating: 5, color: "bg-orange-100" },
-  { name: "Amara O.", title: "Great Experience", text: "Found a professional photographer for my event in minutes. The service quality was outstanding.", rating: 5, color: "bg-pink-100" },
+  { name: "Sarah M.", title: "Best Experience", text: "BSB Market made it so easy to find exactly what I needed. The platform is smooth and reliable.", rating: 5, color: "bg-accent", img: testimonialSarah },
+  { name: "James K.", title: "Amazing Experience", text: "I sold my products within hours of listing them. Highly recommend this marketplace to everyone.", rating: 5, color: "bg-orange-100", img: testimonialJames },
+  { name: "Amara O.", title: "Great Experience", text: "Found a professional photographer for my event in minutes. The service quality was outstanding.", rating: 5, color: "bg-pink-100", img: testimonialAmara },
 ];
 
 const TestimonialsSection = () => (
@@ -32,9 +35,7 @@ const TestimonialsSection = () => (
             style={{ boxShadow: "var(--card-shadow)" }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className={`w-10 h-10 rounded-full ${t.color} flex items-center justify-center`}>
-                <User className="w-5 h-5 text-primary" />
-              </div>
+              <img src={t.img} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
               <div className="flex-1">
                 <h4 className="font-semibold text-foreground">{t.title}</h4>
                 <p className="text-xs text-muted-foreground">{t.name}</p>
@@ -63,9 +64,7 @@ const TestimonialsSection = () => (
             style={{ boxShadow: "var(--card-shadow)" }}
           >
             <div className="flex items-center gap-3">
-              <div className={`w-9 h-9 rounded-full ${t.color} flex items-center justify-center flex-shrink-0`}>
-                <User className="w-4 h-4 text-primary" />
-              </div>
+              <img src={t.img} alt={t.name} className="w-9 h-9 rounded-full object-cover flex-shrink-0" />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-0.5">
                   <h4 className="text-sm font-bold text-foreground">{t.title}</h4>
@@ -80,7 +79,6 @@ const TestimonialsSection = () => (
             </div>
           </motion.div>
         ))}
-        {/* Pagination dots */}
         <div className="flex items-center justify-center gap-1.5 mt-1">
           <div className="w-2 h-2 rounded-full bg-primary" />
           <div className="w-2 h-2 rounded-full bg-border" />
