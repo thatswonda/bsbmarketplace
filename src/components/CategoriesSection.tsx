@@ -189,7 +189,7 @@ const CategoriesSection = () => {
                 style={{ boxShadow: "var(--card-shadow)" }}
               >
                 <img
-                  src={images[i % images.length]}
+                  src={selectedCategory ? categoryImages[selectedCategory] : ""}
                   alt={listing.title}
                   className="w-28 h-24 object-cover rounded-xl flex-shrink-0"
                 />
