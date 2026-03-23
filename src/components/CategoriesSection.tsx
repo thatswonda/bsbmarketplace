@@ -13,12 +13,31 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-import spaImg from "@/assets/service-spa.jpg";
-import photoImg from "@/assets/service-photography.jpg";
-import webdevImg from "@/assets/service-webdev.jpg";
-import fitnessImg from "@/assets/service-fitness.jpg";
+import catServices from "@/assets/cat-services.jpg";
+import catGoods from "@/assets/cat-goods.jpg";
+import catContracts from "@/assets/cat-contracts.jpg";
+import catJobs from "@/assets/cat-jobs.jpg";
+import catRealEstate from "@/assets/cat-realestate.jpg";
+import catAutomobiles from "@/assets/cat-automobiles.jpg";
+import catPromotions from "@/assets/cat-promotions.jpg";
+import catPanteka from "@/assets/cat-panteka.jpg";
+import catGadgets from "@/assets/cat-gadgets.jpg";
+import catEbooks from "@/assets/cat-ebooks.jpg";
+import catShares from "@/assets/cat-shares.jpg";
 
-const images = [spaImg, photoImg, webdevImg, fitnessImg];
+const categoryImages: Record<string, string> = {
+  Services: catServices,
+  Goods: catGoods,
+  Contracts: catContracts,
+  Jobs: catJobs,
+  "Real Estate": catRealEstate,
+  Automobiles: catAutomobiles,
+  Promotions: catPromotions,
+  Panteka: catPanteka,
+  Gadgets: catGadgets,
+  Ebooks: catEbooks,
+  Shares: catShares,
+};
 
 const categoryListings: Record<string, { title: string; desc: string; price: string; views: string }[]> = {
   Services: [
