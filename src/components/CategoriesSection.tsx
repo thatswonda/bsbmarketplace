@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   Wrench, ShoppingBag, Briefcase, Car, FileText, Building2,
   Megaphone, Store, Smartphone, BookOpen, BarChart3,
-  Eye, Heart, Share2, X
+  Eye, Heart, Share2
 } from "lucide-react";
 import {
   Dialog,
@@ -13,98 +13,118 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-import catServices from "@/assets/cat-services.jpg";
-import catGoods from "@/assets/cat-goods.jpg";
-import catContracts from "@/assets/cat-contracts.jpg";
-import catJobs from "@/assets/cat-jobs.jpg";
-import catRealEstate from "@/assets/cat-realestate.jpg";
-import catAutomobiles from "@/assets/cat-automobiles.jpg";
-import catPromotions from "@/assets/cat-promotions.jpg";
-import catPanteka from "@/assets/cat-panteka.jpg";
-import catGadgets from "@/assets/cat-gadgets.jpg";
-import catEbooks from "@/assets/cat-ebooks.jpg";
-import catShares from "@/assets/cat-shares.jpg";
+// Per-listing images
+import listingServices1 from "@/assets/listing-services-1.jpg";
+import listingServices2 from "@/assets/listing-services-2.jpg";
+import listingServices3 from "@/assets/listing-services-3.jpg";
+import listingServices4 from "@/assets/listing-services-4.jpg";
+import listingGoods1 from "@/assets/listing-goods-1.jpg";
+import listingGoods2 from "@/assets/listing-goods-2.jpg";
+import listingGoods3 from "@/assets/listing-goods-3.jpg";
+import listingGoods4 from "@/assets/listing-goods-4.jpg";
+import listingContracts1 from "@/assets/listing-contracts-1.jpg";
+import listingContracts2 from "@/assets/listing-contracts-2.jpg";
+import listingContracts3 from "@/assets/listing-contracts-3.jpg";
+import listingContracts4 from "@/assets/listing-contracts-4.jpg";
+import listingJobs1 from "@/assets/listing-jobs-1.jpg";
+import listingJobs2 from "@/assets/listing-jobs-2.jpg";
+import listingJobs3 from "@/assets/listing-jobs-3.jpg";
+import listingJobs4 from "@/assets/listing-jobs-4.jpg";
+import listingRealEstate1 from "@/assets/listing-realestate-1.jpg";
+import listingRealEstate2 from "@/assets/listing-realestate-2.jpg";
+import listingRealEstate3 from "@/assets/listing-realestate-3.jpg";
+import listingRealEstate4 from "@/assets/listing-realestate-4.jpg";
+import listingAuto1 from "@/assets/listing-auto-1.jpg";
+import listingAuto2 from "@/assets/listing-auto-2.jpg";
+import listingAuto3 from "@/assets/listing-auto-3.jpg";
+import listingAuto4 from "@/assets/listing-auto-4.jpg";
+import listingPromo1 from "@/assets/listing-promo-1.jpg";
+import listingPromo2 from "@/assets/listing-promo-2.jpg";
+import listingPromo3 from "@/assets/listing-promo-3.jpg";
+import listingPromo4 from "@/assets/listing-promo-4.jpg";
+import listingPanteka1 from "@/assets/listing-panteka-1.jpg";
+import listingPanteka2 from "@/assets/listing-panteka-2.jpg";
+import listingPanteka3 from "@/assets/listing-panteka-3.jpg";
+import listingPanteka4 from "@/assets/listing-panteka-4.jpg";
+import listingGadgets1 from "@/assets/listing-gadgets-1.jpg";
+import listingGadgets2 from "@/assets/listing-gadgets-2.jpg";
+import listingGadgets3 from "@/assets/listing-gadgets-3.jpg";
+import listingGadgets4 from "@/assets/listing-gadgets-4.jpg";
+import listingEbooks1 from "@/assets/listing-ebooks-1.jpg";
+import listingEbooks2 from "@/assets/listing-ebooks-2.jpg";
+import listingEbooks3 from "@/assets/listing-ebooks-3.jpg";
+import listingEbooks4 from "@/assets/listing-ebooks-4.jpg";
+import listingShares1 from "@/assets/listing-shares-1.jpg";
+import listingShares2 from "@/assets/listing-shares-2.jpg";
+import listingShares3 from "@/assets/listing-shares-3.jpg";
+import listingShares4 from "@/assets/listing-shares-4.jpg";
 
-const categoryImages: Record<string, string> = {
-  Services: catServices,
-  Goods: catGoods,
-  Contracts: catContracts,
-  Jobs: catJobs,
-  "Real Estate": catRealEstate,
-  Automobiles: catAutomobiles,
-  Promotions: catPromotions,
-  Panteka: catPanteka,
-  Gadgets: catGadgets,
-  Ebooks: catEbooks,
-  Shares: catShares,
-};
-
-const categoryListings: Record<string, { title: string; desc: string; price: string; views: string }[]> = {
+const categoryListings: Record<string, { title: string; desc: string; price: string; views: string; img: string }[]> = {
   Services: [
-    { title: "Home Cleaning", desc: "Professional deep cleaning services for your home or office.", price: "$ 50", views: "9,320" },
-    { title: "Plumbing Repair", desc: "Expert plumbing solutions for leaks, installations and maintenance.", price: "$ 40", views: "5,812" },
-    { title: "Electrical Work", desc: "Licensed electricians for wiring, repairs and installations.", price: "$ 60", views: "7,105" },
-    { title: "Painting Service", desc: "Interior and exterior painting by skilled professionals.", price: "$ 80", views: "4,230" },
+    { title: "Home Cleaning", desc: "Professional deep cleaning services for your home or office.", price: "$ 50", views: "9,320", img: listingServices1 },
+    { title: "Plumbing Repair", desc: "Expert plumbing solutions for leaks, installations and maintenance.", price: "$ 40", views: "5,812", img: listingServices2 },
+    { title: "Electrical Work", desc: "Licensed electricians for wiring, repairs and installations.", price: "$ 60", views: "7,105", img: listingServices3 },
+    { title: "Painting Service", desc: "Interior and exterior painting by skilled professionals.", price: "$ 80", views: "4,230", img: listingServices4 },
   ],
   Goods: [
-    { title: "Samsung TV 55\"", desc: "Brand new Smart TV with 4K display and built-in streaming apps.", price: "$ 450", views: "12,400" },
-    { title: "Leather Sofa Set", desc: "Premium 7-seater leather sofa set in excellent condition.", price: "$ 800", views: "6,210" },
-    { title: "Running Shoes", desc: "Nike Air Max running shoes, size 42, barely used.", price: "$ 65", views: "3,890" },
-    { title: "Blender Set", desc: "Industrial-grade blender with multiple attachments.", price: "$ 35", views: "8,750" },
+    { title: "Samsung TV 55\"", desc: "Brand new Smart TV with 4K display and built-in streaming apps.", price: "$ 450", views: "12,400", img: listingGoods1 },
+    { title: "Leather Sofa Set", desc: "Premium 7-seater leather sofa set in excellent condition.", price: "$ 800", views: "6,210", img: listingGoods2 },
+    { title: "Running Shoes", desc: "Nike Air Max running shoes, size 42, barely used.", price: "$ 65", views: "3,890", img: listingGoods3 },
+    { title: "Blender Set", desc: "Industrial-grade blender with multiple attachments.", price: "$ 35", views: "8,750", img: listingGoods4 },
   ],
   Contracts: [
-    { title: "Building Contract", desc: "Residential building project requiring experienced contractors.", price: "₦ 5M", views: "2,340" },
-    { title: "Supply Agreement", desc: "Long-term supply of office materials for corporate client.", price: "₦ 1.2M", views: "1,800" },
-    { title: "Road Construction", desc: "Government road rehabilitation project seeking bids.", price: "₦ 15M", views: "4,100" },
-    { title: "Catering Contract", desc: "Event catering services needed for corporate functions.", price: "₦ 500K", views: "3,560" },
+    { title: "Building Contract", desc: "Residential building project requiring experienced contractors.", price: "₦ 5M", views: "2,340", img: listingContracts1 },
+    { title: "Supply Agreement", desc: "Long-term supply of office materials for corporate client.", price: "₦ 1.2M", views: "1,800", img: listingContracts2 },
+    { title: "Road Construction", desc: "Government road rehabilitation project seeking bids.", price: "₦ 15M", views: "4,100", img: listingContracts3 },
+    { title: "Catering Contract", desc: "Event catering services needed for corporate functions.", price: "₦ 500K", views: "3,560", img: listingContracts4 },
   ],
   Jobs: [
-    { title: "Software Developer", desc: "Remote full-stack developer role with competitive salary.", price: "$ 2,000/mo", views: "15,620" },
-    { title: "Sales Representative", desc: "Field sales position with commission-based earnings.", price: "$ 800/mo", views: "9,430" },
-    { title: "Graphic Designer", desc: "Creative designer needed for branding and marketing projects.", price: "$ 1,200/mo", views: "7,890" },
-    { title: "Driver Needed", desc: "Experienced driver for executive transport services.", price: "$ 400/mo", views: "11,200" },
+    { title: "Software Developer", desc: "Remote full-stack developer role with competitive salary.", price: "$ 2,000/mo", views: "15,620", img: listingJobs1 },
+    { title: "Sales Representative", desc: "Field sales position with commission-based earnings.", price: "$ 800/mo", views: "9,430", img: listingJobs2 },
+    { title: "Graphic Designer", desc: "Creative designer needed for branding and marketing projects.", price: "$ 1,200/mo", views: "7,890", img: listingJobs3 },
+    { title: "Driver Needed", desc: "Experienced driver for executive transport services.", price: "$ 400/mo", views: "11,200", img: listingJobs4 },
   ],
   "Real Estate": [
-    { title: "3 Bedroom Flat", desc: "Spacious apartment in a gated estate with 24/7 security.", price: "₦ 1.5M/yr", views: "18,900" },
-    { title: "Shop Space", desc: "Commercial shop space in a busy market area.", price: "₦ 800K/yr", views: "6,340" },
-    { title: "Land for Sale", desc: "500sqm plot of land with C of O in a prime location.", price: "₦ 10M", views: "14,500" },
-    { title: "Office Space", desc: "Furnished office space with internet and parking.", price: "₦ 2M/yr", views: "5,120" },
+    { title: "3 Bedroom Flat", desc: "Spacious apartment in a gated estate with 24/7 security.", price: "₦ 1.5M/yr", views: "18,900", img: listingRealEstate1 },
+    { title: "Shop Space", desc: "Commercial shop space in a busy market area.", price: "₦ 800K/yr", views: "6,340", img: listingRealEstate2 },
+    { title: "Land for Sale", desc: "500sqm plot of land with C of O in a prime location.", price: "₦ 10M", views: "14,500", img: listingRealEstate3 },
+    { title: "Office Space", desc: "Furnished office space with internet and parking.", price: "₦ 2M/yr", views: "5,120", img: listingRealEstate4 },
   ],
   Automobiles: [
-    { title: "Toyota Camry 2020", desc: "Clean Camry with low mileage, fully loaded.", price: "₦ 12M", views: "22,100" },
-    { title: "Honda CRV 2019", desc: "SUV in excellent condition, leather interior.", price: "₦ 9.5M", views: "13,400" },
-    { title: "Motorcycle", desc: "Bajaj Boxer motorcycle, recently serviced.", price: "₦ 350K", views: "8,900" },
-    { title: "Mini Bus", desc: "18-seater bus suitable for commercial transport.", price: "₦ 6M", views: "4,670" },
+    { title: "Toyota Camry 2020", desc: "Clean Camry with low mileage, fully loaded.", price: "₦ 12M", views: "22,100", img: listingAuto1 },
+    { title: "Honda CRV 2019", desc: "SUV in excellent condition, leather interior.", price: "₦ 9.5M", views: "13,400", img: listingAuto2 },
+    { title: "Motorcycle", desc: "Bajaj Boxer motorcycle, recently serviced.", price: "₦ 350K", views: "8,900", img: listingAuto3 },
+    { title: "Mini Bus", desc: "18-seater bus suitable for commercial transport.", price: "₦ 6M", views: "4,670", img: listingAuto4 },
   ],
   Promotions: [
-    { title: "Brand Ambassador", desc: "Promote a new beverage brand on social media and earn.", price: "$ 150", views: "20,300" },
-    { title: "Product Review", desc: "Review and promote tech gadgets to your audience.", price: "$ 80", views: "11,560" },
-    { title: "Event Promotion", desc: "Help promote upcoming concerts and earn commissions.", price: "$ 200", views: "7,890" },
-    { title: "App Install Campaign", desc: "Earn per install by promoting a new mobile app.", price: "$ 0.50/install", views: "16,200" },
+    { title: "Brand Ambassador", desc: "Promote a new beverage brand on social media and earn.", price: "$ 150", views: "20,300", img: listingPromo1 },
+    { title: "Product Review", desc: "Review and promote tech gadgets to your audience.", price: "$ 80", views: "11,560", img: listingPromo2 },
+    { title: "Event Promotion", desc: "Help promote upcoming concerts and earn commissions.", price: "$ 200", views: "7,890", img: listingPromo3 },
+    { title: "App Install Campaign", desc: "Earn per install by promoting a new mobile app.", price: "$ 0.50/install", views: "16,200", img: listingPromo4 },
   ],
   Panteka: [
-    { title: "Spare Parts", desc: "Quality car spare parts for all vehicle models.", price: "varies", views: "9,800" },
-    { title: "Generator Parts", desc: "Replacement parts for popular generator brands.", price: "varies", views: "6,450" },
-    { title: "Welding Materials", desc: "Industrial welding rods, gas, and equipment.", price: "varies", views: "3,210" },
-    { title: "Plumbing Fittings", desc: "Pipes, valves, and fittings for all plumbing needs.", price: "varies", views: "5,670" },
+    { title: "Spare Parts", desc: "Quality car spare parts for all vehicle models.", price: "varies", views: "9,800", img: listingPanteka1 },
+    { title: "Generator Parts", desc: "Replacement parts for popular generator brands.", price: "varies", views: "6,450", img: listingPanteka2 },
+    { title: "Welding Materials", desc: "Industrial welding rods, gas, and equipment.", price: "varies", views: "3,210", img: listingPanteka3 },
+    { title: "Plumbing Fittings", desc: "Pipes, valves, and fittings for all plumbing needs.", price: "varies", views: "5,670", img: listingPanteka4 },
   ],
   Gadgets: [
-    { title: "iPhone 15 Pro", desc: "Brand new iPhone 15 Pro Max, 256GB, sealed.", price: "$ 1,100", views: "25,400" },
-    { title: "Laptop - HP Pavilion", desc: "Core i7, 16GB RAM, 512GB SSD, like new.", price: "$ 650", views: "18,300" },
-    { title: "Wireless Earbuds", desc: "AirPods Pro with active noise cancellation.", price: "$ 180", views: "14,200" },
-    { title: "Smart Watch", desc: "Samsung Galaxy Watch with health tracking features.", price: "$ 220", views: "10,800" },
+    { title: "iPhone 15 Pro", desc: "Brand new iPhone 15 Pro Max, 256GB, sealed.", price: "$ 1,100", views: "25,400", img: listingGadgets1 },
+    { title: "Laptop - HP Pavilion", desc: "Core i7, 16GB RAM, 512GB SSD, like new.", price: "$ 650", views: "18,300", img: listingGadgets2 },
+    { title: "Wireless Earbuds", desc: "AirPods Pro with active noise cancellation.", price: "$ 180", views: "14,200", img: listingGadgets3 },
+    { title: "Smart Watch", desc: "Samsung Galaxy Watch with health tracking features.", price: "$ 220", views: "10,800", img: listingGadgets4 },
   ],
   Ebooks: [
-    { title: "Business Mastery", desc: "Learn proven strategies to grow your business from scratch.", price: "$ 15", views: "8,900" },
-    { title: "Forex Trading Guide", desc: "Complete beginner's guide to forex trading and investment.", price: "$ 25", views: "12,340" },
-    { title: "Cooking Recipes", desc: "Over 200 African and continental recipes in one book.", price: "$ 10", views: "6,780" },
-    { title: "Self Development", desc: "Transform your mindset with practical daily habits.", price: "$ 12", views: "9,560" },
+    { title: "Business Mastery", desc: "Learn proven strategies to grow your business from scratch.", price: "$ 15", views: "8,900", img: listingEbooks1 },
+    { title: "Forex Trading Guide", desc: "Complete beginner's guide to forex trading and investment.", price: "$ 25", views: "12,340", img: listingEbooks2 },
+    { title: "Cooking Recipes", desc: "Over 200 African and continental recipes in one book.", price: "$ 10", views: "6,780", img: listingEbooks3 },
+    { title: "Self Development", desc: "Transform your mindset with practical daily habits.", price: "$ 12", views: "9,560", img: listingEbooks4 },
   ],
   Shares: [
-    { title: "Tech Startup Equity", desc: "10% equity stake in a growing fintech startup.", price: "$ 5,000", views: "3,450" },
-    { title: "Restaurant Partnership", desc: "Investment opportunity in a popular restaurant chain.", price: "$ 2,000", views: "2,890" },
-    { title: "Logistics Company", desc: "Shares available in an expanding delivery service.", price: "$ 3,500", views: "4,120" },
-    { title: "Agribusiness Fund", desc: "Invest in large-scale farming and earn quarterly returns.", price: "$ 1,000", views: "6,780" },
+    { title: "Tech Startup Equity", desc: "10% equity stake in a growing fintech startup.", price: "$ 5,000", views: "3,450", img: listingShares1 },
+    { title: "Restaurant Partnership", desc: "Investment opportunity in a popular restaurant chain.", price: "$ 2,000", views: "2,890", img: listingShares2 },
+    { title: "Logistics Company", desc: "Shares available in an expanding delivery service.", price: "$ 3,500", views: "4,120", img: listingShares3 },
+    { title: "Agribusiness Fund", desc: "Invest in large-scale farming and earn quarterly returns.", price: "$ 1,000", views: "6,780", img: listingShares4 },
   ],
 };
 
@@ -189,7 +209,7 @@ const CategoriesSection = () => {
                 style={{ boxShadow: "var(--card-shadow)" }}
               >
                 <img
-                  src={selectedCategory ? categoryImages[selectedCategory] : ""}
+                  src={listing.img}
                   alt={listing.title}
                   className="w-28 h-24 object-cover rounded-xl flex-shrink-0"
                 />
