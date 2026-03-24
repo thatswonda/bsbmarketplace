@@ -24,20 +24,53 @@ const ExploreServices = () => {
   };
 
   return (
-    <section className="py-6 md:hidden bg-card" id="hire">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-6 sm:py-24 bg-card" id="hire">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xl font-bold text-foreground mb-4"
+          className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 sm:mb-12"
         >
           Explore Our Services
         </motion.h2>
 
+        {/* Desktop: grid */}
+        <div className="hidden md:grid grid-cols-3 lg:grid-cols-6 gap-6">
+          {services.map((s, i) => (
+            <motion.div
+              key={s.title + i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.06 }}
+              whileHover={{ y: -4 }}
+              className="bg-card rounded-[20px] overflow-hidden transition-shadow duration-300"
+              style={{ boxShadow: "var(--card-shadow)" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
+            >
+              <div className="relative h-36">
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
+                <div className="absolute bottom-3 left-3 right-3">
+                  <h3 className="text-sm font-bold text-primary-foreground leading-tight">{s.title}</h3>
+                  <p className="text-xs text-primary-foreground/80 font-medium">{s.price}</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-end gap-2 px-3 py-2.5">
+                <Eye className="w-4 h-4 text-primary" />
+                <Heart className="w-4 h-4 text-primary" />
+                <Share2 className="w-4 h-4 text-primary" />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Mobile: horizontal scroll */}
         <div
           ref={scrollRef}
-          className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory"
+          className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory md:hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {services.map((s, i) => (
@@ -51,11 +84,7 @@ const ExploreServices = () => {
               style={{ boxShadow: "var(--card-shadow)" }}
             >
               <div className="relative h-28">
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  className="w-full h-full object-cover"
-                />
+                <img src={s.img} alt={s.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 to-transparent" />
                 <div className="absolute bottom-2 left-2.5 right-2.5">
                   <h3 className="text-xs font-bold text-primary-foreground leading-tight">{s.title}</h3>
