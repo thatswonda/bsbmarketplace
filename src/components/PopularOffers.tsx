@@ -24,9 +24,9 @@ const PopularOffers = () => (
         Popular Listings
       </motion.h2>
 
-      {/* Desktop: card grid (first 3) */}
-      <div className="hidden md:grid grid-cols-3 gap-8">
-        {offers.slice(0, 3).map((offer, i) => (
+      {/* Desktop: card grid (all 4) */}
+      <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
+        {offers.map((offer, i) => (
           <motion.div
             key={offer.title}
             initial={{ opacity: 0, y: 20 }}
