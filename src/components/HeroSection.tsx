@@ -165,17 +165,21 @@ const HeroSection = () => {
           </motion.p>
 
           {/* Phone mockup with floating icons */}
-          <div className="relative mx-auto w-[340px] sm:w-[440px] mb-8 sm:mb-16">
+          <div className="relative mx-auto w-[340px] sm:w-[440px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative z-10 mx-auto w-[160px] sm:w-[200px]"
+              initial={{ opacity: 0, y: 40, rotateY: 0 }}
+              animate={{ opacity: 1, y: 0, rotateY: -12, rotateX: 5, rotateZ: 2 }}
+              transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 80 }}
+              className="relative z-10 mx-auto w-[160px] sm:w-[220px]"
+              style={{ transformStyle: "preserve-3d" }}
             >
               <img
                 src={phoneMockup}
                 alt="BSB App"
-                className="w-full h-auto drop-shadow-2xl"
+                className="w-full h-auto rounded-[28px] sm:rounded-[36px]"
+                style={{
+                  filter: "drop-shadow(20px 30px 40px rgba(0,0,0,0.35))",
+                }}
               />
             </motion.div>
 
