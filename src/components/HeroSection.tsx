@@ -168,7 +168,7 @@ const HeroSection = () => {
           <div className="relative mx-auto w-[340px] sm:w-[440px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
             <motion.div
               initial={{ opacity: 0, y: 40, rotateY: 0 }}
-              animate={{ opacity: 1, y: 0, rotateY: -12, rotateX: 5, rotateZ: 2 }}
+              animate={{ opacity: 1, y: 0, rotateY: -25, rotateX: 12, rotateZ: 3 }}
               transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 80 }}
               className="relative z-10 mx-auto w-[160px] sm:w-[220px]"
               style={{ transformStyle: "preserve-3d" }}
