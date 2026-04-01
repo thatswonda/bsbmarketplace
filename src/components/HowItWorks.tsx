@@ -9,22 +9,21 @@ const steps = [
 ];
 
 const HowItWorks = () => (
-  <section className="hidden md:block py-24 bg-card">
-    <div className="max-w-6xl mx-auto px-6">
+  <section className="py-8 sm:py-24 bg-card">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        className="text-center mb-6 sm:mb-16"
       >
-        <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">How It Works</h2>
-        <p className="text-muted-foreground max-w-xl mx-auto">Get started in four simple steps and unlock the full power of BSB Market.</p>
+        <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-4">How It Works</h2>
+        <p className="text-xs sm:text-base text-muted-foreground max-w-xl mx-auto">Get started in four simple steps and unlock the full power of BSB Market.</p>
       </motion.div>
 
-      <div className="grid grid-cols-4 gap-8 relative">
-        {/* Connecting line */}
+      {/* Desktop: 4-col with connecting line */}
+      <div className="hidden md:grid grid-cols-4 gap-8 relative">
         <div className="absolute top-12 left-[12.5%] right-[12.5%] h-[2px] bg-border z-0" />
-
         {steps.map((step, i) => (
           <motion.div
             key={step.title}
@@ -40,6 +39,28 @@ const HowItWorks = () => (
             <span className="text-xs font-bold text-primary mb-2">Step {i + 1}</span>
             <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
             <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Mobile: 2x2 grid */}
+      <div className="grid grid-cols-2 gap-3 md:hidden">
+        {steps.map((step, i) => (
+          <motion.div
+            key={step.title}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className="p-3 bg-card rounded-xl flex flex-col items-center text-center"
+            style={{ boxShadow: "var(--card-shadow)" }}
+          >
+            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center mb-2">
+              <step.icon className="w-5 h-5 text-primary" />
+            </div>
+            <span className="text-[9px] font-bold text-primary mb-1">Step {i + 1}</span>
+            <h3 className="text-xs font-bold text-foreground mb-1">{step.title}</h3>
+            <p className="text-[10px] text-muted-foreground leading-relaxed">{step.desc}</p>
           </motion.div>
         ))}
       </div>

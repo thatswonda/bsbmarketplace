@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Wrench, ShoppingBag, Briefcase, Car, FileText, Building2,
@@ -147,6 +147,14 @@ const CategoriesSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const listings = selectedCategory ? categoryListings[selectedCategory] || [] : [];
+
+  // Preload all listing images on mount
+  useEffect(() => {
+    Object.values(categoryListings).flat().forEach(l => {
+      const img = new Image();
+      img.src = l.img;
+    });
+  }, []);
 
   return (
     <section className="py-6 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
