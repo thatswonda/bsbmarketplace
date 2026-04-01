@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
 import sellIcon from "@/assets/sell-icon.png";
