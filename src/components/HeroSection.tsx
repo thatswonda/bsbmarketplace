@@ -126,6 +126,14 @@ const HeroSection = () => {
   const selectedFeature = features.find(f => f.label === selectedLabel);
   const listings = selectedLabel ? featureListings[selectedLabel] || [] : [];
 
+  // Preload all listing images on mount
+  useEffect(() => {
+    Object.values(featureListings).flat().forEach(l => {
+      const img = new Image();
+      img.src = l.img;
+    });
+  }, []);
+
   return (
     <section
       id="home"

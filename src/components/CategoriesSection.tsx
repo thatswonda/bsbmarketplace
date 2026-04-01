@@ -148,6 +148,14 @@ const CategoriesSection = () => {
 
   const listings = selectedCategory ? categoryListings[selectedCategory] || [] : [];
 
+  // Preload all listing images on mount
+  useEffect(() => {
+    Object.values(categoryListings).flat().forEach(l => {
+      const img = new Image();
+      img.src = l.img;
+    });
+  }, []);
+
   return (
     <section className="py-6 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
