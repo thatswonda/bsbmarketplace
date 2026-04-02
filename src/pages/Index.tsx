@@ -18,28 +18,29 @@ const Index = () => (
   <div className="min-h-screen">
     <Navbar />
     <HeroSection />
-    {/* Desktop: About before Trust; Mobile: Trust before About */}
+    {/* Desktop: About before Trust */}
     <div className="hidden sm:block">
       <AboutSection />
       <TrustSection />
     </div>
+    {/* Mobile: HowItWorks before Trust */}
     <div className="sm:hidden">
+      <HowItWorks />
       <TrustSection />
     </div>
     <PopularOffers />
     <CategoriesSection />
     <ExploreServices />
-    <HowItWorks />
+    {/* Desktop only HowItWorks (already shown on mobile above) */}
+    <div className="hidden sm:block">
+      <HowItWorks />
+    </div>
     <div className="sm:hidden">
       <AboutSection />
     </div>
     <TestimonialsSection />
     <FAQSection />
     <CtaSection />
-    {/* Mobile only: Download app before newsletter */}
-    <div className="sm:hidden">
-      <DownloadSection />
-    </div>
     <NewsletterSection />
     <Footer />
     <BackToTop />
