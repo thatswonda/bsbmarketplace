@@ -36,6 +36,9 @@ const ExploreServices = () => {
         >
           Explore Our Services
         </motion.h2>
+        <p className="text-sm sm:text-base text-muted-foreground mt-2 mb-4 sm:mb-12 max-w-2xl">
+          From creative professionals to wellness experts — explore a wide range of services tailored to your needs.
+        </p>
 
         {/* Desktop: grid */}
         <div className="hidden md:grid grid-cols-3 lg:grid-cols-6 gap-6">
