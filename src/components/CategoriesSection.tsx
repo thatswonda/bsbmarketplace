@@ -168,6 +168,9 @@ const CategoriesSection = () => {
           >
             Categories of Activities
           </motion.h2>
+          <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl">
+            Browse through diverse categories to find exactly what you need — from professional services to everyday essentials.
+          </p>
         </div>
 
         <div

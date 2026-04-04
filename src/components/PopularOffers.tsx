@@ -23,6 +23,9 @@ const PopularOffers = () => (
       >
         Popular Listings
       </motion.h2>
+      <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-12 max-w-2xl">
+        Discover the most sought-after listings loved by our community — handpicked for quality and value.
+      </p>
 
       {/* Desktop: card grid (all 4) */}
       <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
