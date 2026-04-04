@@ -32,11 +32,11 @@ const ExploreServices = () => {
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-4 sm:mb-12"
+          className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-1 sm:mb-2"
         >
           Explore Our Services
         </motion.h2>
-        <p className="text-sm sm:text-base text-muted-foreground mt-2 mb-4 sm:mb-12 max-w-2xl">
+        <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-12 max-w-2xl">
           From creative professionals to wellness experts — explore a wide range of services tailored to your needs.
         </p>
 
