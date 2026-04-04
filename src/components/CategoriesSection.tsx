@@ -159,16 +159,16 @@ const CategoriesSection = () => {
   return (
     <section className="py-6 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between mb-4 sm:mb-12">
+        <div className="mb-4 sm:mb-12">
           <motion.h2
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground"
+            className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-1 sm:mb-2"
           >
             Categories of Activities
           </motion.h2>
-          <p className="text-sm sm:text-base text-muted-foreground mt-2 max-w-2xl">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl">
             Browse through diverse categories to find exactly what you need — from professional services to everyday essentials.
           </p>
         </div>
