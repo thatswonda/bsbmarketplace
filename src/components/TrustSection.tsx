@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Clock, Globe, Headphones, CreditCard, Lock } from "lucide-react";
+import remoteAsset from "@/assets/remote-work-dubai.png.asset.json";
+
 
 const badges = [
   { icon: ShieldCheck, label: "Verified Listings" },
@@ -38,6 +40,31 @@ const TrustSection = () => (
           </motion.div>
         ))}
       </div>
+
+      {/* Global business band */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mt-6 sm:mt-14 grid md:grid-cols-2 gap-5 sm:gap-10 items-center"
+      >
+        <div className="rounded-2xl sm:rounded-3xl overflow-hidden" style={{ boxShadow: "var(--card-shadow)" }}>
+          <img
+            src={remoteAsset.url}
+            alt="Entrepreneur working remotely on a laptop overlooking a modern city skyline"
+            className="w-full h-48 sm:h-[320px] object-cover"
+            loading="lazy"
+          />
+        </div>
+        <div className="text-left">
+          <h3 className="text-base sm:text-2xl font-bold text-foreground mb-2">Do business from anywhere</h3>
+          <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
+            Whether you're trading from home, the office, or halfway across the world, BSB Market keeps your
+            listings, clients, and opportunities in one place — locally and globally.
+          </p>
+        </div>
+      </motion.div>
+
     </div>
   </section>
 );

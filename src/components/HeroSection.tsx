@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import brandBanner from "@/assets/bsb-banner.png.asset.json";
+
 import sellIcon from "@/assets/sell-icon.png";
 import buyIcon from "@/assets/buy-icon.png";
 import servicesIcon from "@/assets/services-icon.png";
@@ -151,7 +153,24 @@ const HeroSection = () => {
 
       <div className="relative pt-20 sm:pt-32 pb-6 sm:pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-6 sm:mb-10 rounded-2xl sm:rounded-3xl overflow-hidden"
+            style={{ boxShadow: "var(--card-shadow)" }}
+          >
+            <img
+              src={brandBanner.url}
+              alt="Bsb Market — Buy, Sell & Connect"
+              className="w-full h-auto object-cover"
+              width={1080}
+              height={527}
+            />
+          </motion.div>
+
           <motion.h1
+
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
