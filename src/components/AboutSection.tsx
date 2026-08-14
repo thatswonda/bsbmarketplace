@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Shield, Users } from "lucide-react";
-import aboutImg from "@/assets/about-us.jpg";
+import aboutAsset from "@/assets/handshake-deal.png.asset.json";
 
 const values = [
   { icon: Target, title: "Our Mission", desc: "To simplify trade and business by connecting people with the goods, services, and opportunities they need — locally and globally." },
@@ -33,7 +33,7 @@ const AboutSection = () => (
           className="rounded-3xl overflow-hidden"
           style={{ boxShadow: "var(--card-shadow-hover)" }}
         >
-          <img src={aboutImg} alt="About BSB Market" className="w-full h-[360px] object-cover" loading="lazy" />
+          <img src={aboutAsset.url} alt="Two professionals sealing a business deal with a handshake" className="w-full h-[360px] object-cover" loading="lazy" />
         </motion.div>
         <div className="grid grid-cols-2 gap-6">
           {values.map((v, i) => (

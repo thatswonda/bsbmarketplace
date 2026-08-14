@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoAsset from "@/assets/bsb-logo.png.asset.json";
 
 const Footer = () => (
   <footer className="py-6 sm:py-12 bg-card border-t border-border/50">
@@ -6,7 +7,11 @@ const Footer = () => (
       {/* Desktop footer */}
       <div className="hidden md:grid grid-cols-4 gap-8 mb-10">
         <div>
-          <span className="text-2xl font-bold text-primary mb-4 block">BSB</span>
+          <div className="flex items-center gap-2 mb-4">
+            <img src={logoAsset.url} alt="BSB Market logo" className="w-9 h-9 rounded-lg object-contain" loading="lazy" />
+            <span className="text-xl font-bold text-foreground">Bsb <span className="text-primary">Market</span></span>
+          </div>
+
           <p className="text-sm text-muted-foreground leading-relaxed">Making trade and business easier. Your one-stop marketplace for goods, services, jobs, and networking.</p>
           <div className="flex items-center gap-3 mt-4">
             <a href="#" className="w-9 h-9 rounded-full bg-accent flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors text-muted-foreground">
