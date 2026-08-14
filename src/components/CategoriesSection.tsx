@@ -157,49 +157,97 @@ const CategoriesSection = () => {
   }, []);
 
   return (
-    <section className="py-6 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="mb-4 sm:mb-12">
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-1 sm:mb-2"
-          >
-            Categories of Activities
-          </motion.h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl">
-            Browse through diverse categories to find exactly what you need — from professional services to everyday essentials.
+    <section className="py-8 sm:py-24" style={{ background: "var(--hero-gradient)" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
+        <div className="mb-5 sm:mb-12 sm:flex sm:items-end sm:justify-between sm:gap-10">
+          <div>
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="inline-block text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2"
+            >
+              Explore the marketplace
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-1 sm:mb-3"
+            >
+              Categories of Activities
+            </motion.h2>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-xl">
+              Browse diverse categories to find exactly what you need — from professional services to everyday essentials.
+            </p>
+          </div>
+          <p className="hidden sm:block text-sm text-muted-foreground whitespace-nowrap">
+            <span className="font-bold text-foreground">{categories.length}</span> categories · updated daily
           </p>
         </div>
 
+        {/* Mobile: horizontal scroll */}
         <div
           ref={scrollRef}
-          className="flex gap-3 sm:gap-6 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory"
+          className="flex gap-3 overflow-x-auto scrollbar-hide pb-2 snap-x snap-mandatory sm:hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
+          {categories.map((cat) => (
+            <div
+              key={cat.label}
+              onClick={() => setSelectedCategory(cat.label)}
+              className="flex flex-col items-center text-center p-4 bg-card rounded-2xl cursor-pointer snap-start flex-shrink-0 w-[100px]"
+              style={{ boxShadow: "var(--card-shadow)" }}
+            >
+              <div className="w-10 h-10 rounded-xl bg-accent flex items-center justify-center mb-2">
+                <cat.icon className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xs font-semibold text-foreground whitespace-nowrap">{cat.label}</h3>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: full-width grid */}
+        <div className="hidden sm:grid sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
           {categories.map((cat, i) => (
-            <motion.div
+            <motion.button
               key={cat.label}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ y: -4 }}
+              transition={{ delay: i * 0.04 }}
+              whileHover={{ y: -6 }}
               onClick={() => setSelectedCategory(cat.label)}
-              className="flex flex-col items-center text-center p-4 sm:p-8 bg-card rounded-2xl sm:rounded-[20px] transition-shadow duration-300 cursor-pointer snap-start flex-shrink-0 w-[100px] sm:w-[160px]"
+              className="group relative flex flex-col items-start text-left p-6 bg-card rounded-[20px] border border-border/60 overflow-hidden transition-shadow duration-300"
               style={{ boxShadow: "var(--card-shadow)" }}
               onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow-hover)")}
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "var(--card-shadow)")}
             >
-              <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-accent flex items-center justify-center mb-2 sm:mb-4">
-                <cat.icon className="w-5 h-5 sm:w-7 sm:h-7 text-primary" />
+              <span className="absolute inset-x-0 top-0 h-1 bg-primary scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
+              <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-4 transition-colors duration-300 group-hover:bg-primary">
+                <cat.icon className="w-6 h-6 text-primary transition-colors duration-300 group-hover:text-primary-foreground" />
               </div>
-              <h3 className="text-xs sm:text-sm font-semibold text-foreground whitespace-nowrap">{cat.label}</h3>
-            </motion.div>
+              <h3 className="text-sm font-bold text-foreground mb-1">{cat.label}</h3>
+              <span className="text-xs text-muted-foreground">
+                {(categoryListings[cat.label] || []).length * 214} listings
+              </span>
+            </motion.button>
           ))}
+
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -6 }}
+            onClick={() => setSelectedCategory(categories[0].label)}
+            className="flex flex-col items-start justify-center text-left p-6 rounded-[20px] border-2 border-dashed border-primary/40 bg-transparent transition-colors hover:bg-accent/50"
+          >
+            <h3 className="text-sm font-bold text-primary mb-1">View all</h3>
+            <span className="text-xs text-muted-foreground">Everything on BSB Market</span>
+          </motion.button>
         </div>
       </div>
+
 
       {/* Listings Dialog */}
       <Dialog open={!!selectedCategory} onOpenChange={() => setSelectedCategory(null)}>
