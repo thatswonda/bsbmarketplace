@@ -152,7 +152,7 @@ const HeroSection = () => {
       />
 
       <div className="relative pt-20 sm:pt-32 pb-6 sm:pb-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -168,6 +168,9 @@ const HeroSection = () => {
               height={527}
             />
           </motion.div>
+
+          <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-center lg:text-left">
+          <div className="lg:col-start-1 lg:row-start-1">
 
           <motion.h1
 
@@ -186,10 +189,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-muted-foreground text-xs sm:text-lg mb-8 sm:mb-16 max-w-xl mx-auto"
+            className="text-muted-foreground text-xs sm:text-lg mb-8 sm:mb-16 lg:mb-0 max-w-xl mx-auto lg:mx-0"
           >
             <span className="text-primary font-semibold">Making trade and business easier</span>
           </motion.p>
+          </div>
+
+          <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center">
+
 
           {/* Phone mockup with floating icons */}
           <div className="relative mx-auto w-[340px] sm:w-[440px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
@@ -249,13 +256,17 @@ const HeroSection = () => {
               <motion.path d="M310 190 Q260 200 200 210" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1.6 }} />
             </svg>
           </div>
+          </div>
+
+          <div className="lg:col-start-1 lg:row-start-2">
+
 
           {/* Checklist */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-card rounded-2xl p-5 sm:p-10 mb-6 sm:mb-10 max-w-lg mx-auto"
+            className="bg-card rounded-2xl p-5 sm:p-8 mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0"
             style={{ boxShadow: "var(--card-shadow)" }}
           >
             <h3 className="text-sm sm:text-lg font-bold text-foreground mb-3 text-left">You can</h3>
@@ -288,7 +299,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center gap-3"
+            className="flex items-center justify-center lg:justify-start gap-3"
           >
             <a href="#" className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity">
               <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-current">
@@ -309,6 +320,8 @@ const HeroSection = () => {
               </div>
             </a>
           </motion.div>
+          </div>
+          </div>
         </div>
       </div>
 
