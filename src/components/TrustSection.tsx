@@ -58,21 +58,6 @@ const TrustSection = () => (
         ))}
       </div>
 
-      {/* Stats strip */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mt-6 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-border/60"
-      >
-        {stats.map((s) => (
-          <div key={s.label} className="bg-background py-4 sm:py-7 text-center">
-            <div className="text-lg sm:text-3xl font-bold text-primary">{s.value}</div>
-            <div className="text-[10px] sm:text-sm text-muted-foreground mt-0.5">{s.label}</div>
-          </div>
-        ))}
-      </motion.div>
-
       {/* Global business band */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -95,6 +80,21 @@ const TrustSection = () => (
             listings, clients, and opportunities in one place — locally and globally.
           </p>
         </div>
+      </motion.div>
+
+      {/* Stats strip */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mt-6 sm:mt-12 grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden bg-border/60"
+      >
+        {stats.map((s) => (
+          <div key={s.label} className="bg-background py-4 sm:py-7 text-center">
+            <div className="text-lg sm:text-3xl font-bold text-primary">{s.value}</div>
+            <div className="text-[10px] sm:text-sm text-muted-foreground mt-0.5">{s.label}</div>
+          </div>
+        ))}
       </motion.div>
     </div>
   </section>
