@@ -9,7 +9,7 @@ import servicesIcon from "@/assets/services-icon.png";
 import hireIcon from "@/assets/hire-icon.png";
 import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
-import phoneMockup from "@/assets/phone-mockup.png";
+import phoneMockup from "@/assets/phone-mockup-bsb.png";
 import { Check, Eye, Heart, Share2 } from "lucide-react";
 import {
   Dialog,
@@ -174,7 +174,7 @@ const HeroSection = () => {
             </div>
             <div className="hidden lg:block">
               <h2 className="text-3xl font-bold text-foreground mb-4">
-                Your one-stop marketplace
+                Your Social-Business APP
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Buy, sell, hire, and connect with trusted people and businesses — locally and around the world. BSB Market makes trade and business easier for everyone.
@@ -214,19 +214,17 @@ const HeroSection = () => {
           {/* Phone mockup with floating icons */}
           <div className="relative mx-auto w-[340px] sm:w-[440px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
             <motion.div
-              initial={{ opacity: 0, y: 40, rotateY: 0 }}
-              animate={{ opacity: 1, y: 0, rotateY: -25, rotateX: 12, rotateZ: 3 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 80 }}
               className="relative z-10 mx-auto w-[160px] sm:w-[220px]"
-              style={{ transformStyle: "preserve-3d" }}
             >
               <img
                 src={phoneMockup}
-                alt="BSB App"
-                className="w-full h-auto rounded-[28px] sm:rounded-[36px]"
-                style={{
-                  filter: "drop-shadow(20px 30px 40px rgba(0,0,0,0.35))",
-                }}
+                alt="BSB Market app onboarding screen on a smartphone"
+                className="w-full h-auto"
+                width={704}
+                height={1408}
               />
             </motion.div>
 
