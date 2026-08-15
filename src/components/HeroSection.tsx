@@ -174,7 +174,7 @@ const HeroSection = () => {
             </div>
             <div className="hidden lg:block">
               <h2 className="text-3xl font-bold text-foreground mb-4">
-                Your one-stop marketplace
+                Your Social-Business APP
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Buy, sell, hire, and connect with trusted people and businesses — locally and around the world. BSB Market makes trade and business easier for everyone.
