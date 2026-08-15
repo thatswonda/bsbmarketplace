@@ -9,7 +9,7 @@ import servicesIcon from "@/assets/services-icon.png";
 import hireIcon from "@/assets/hire-icon.png";
 import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
-import phoneMockup from "@/assets/phone-mockup.png";
+import phoneMockup from "@/assets/phone-mockup-bsb.png";
 import { Check, Eye, Heart, Share2 } from "lucide-react";
 import {
   Dialog,
