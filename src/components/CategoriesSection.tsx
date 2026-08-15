@@ -142,6 +142,20 @@ const categories = [
   { icon: BarChart3, label: "Shares" },
 ];
 
+const categoryCounts: Record<string, string> = {
+  Services: "4,812",
+  Goods: "9,340",
+  Contracts: "1,265",
+  Jobs: "6,058",
+  "Real Estate": "3,721",
+  Automobiles: "2,494",
+  Promotions: "1,873",
+  Panteka: "2,140",
+  Gadgets: "7,586",
+  Ebooks: "1,402",
+  Shares: "938",
+};
+
 const CategoriesSection = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -229,7 +243,7 @@ const CategoriesSection = () => {
               </div>
               <h3 className="text-sm font-bold text-foreground mb-1">{cat.label}</h3>
               <span className="text-xs text-muted-foreground">
-                {(categoryListings[cat.label] || []).length * 214} listings
+                {categoryCounts[cat.label]} listings
               </span>
             </motion.button>
           ))}
