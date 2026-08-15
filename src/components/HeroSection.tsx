@@ -153,20 +153,33 @@ const HeroSection = () => {
 
       <div className="relative pt-20 sm:pt-32 pb-6 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 text-center">
+          {/* Banner + intro text side by side on desktop */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 sm:mb-10 rounded-2xl sm:rounded-3xl overflow-hidden"
-            style={{ boxShadow: "var(--card-shadow)" }}
+            className="mb-6 sm:mb-10 lg:mb-14 lg:grid lg:grid-cols-2 lg:gap-10 lg:items-center lg:text-left"
           >
-            <img
-              src={brandBanner.url}
-              alt="Bsb Market — Buy, Sell & Connect"
-              className="w-full h-auto object-cover"
-              width={1080}
-              height={527}
-            />
+            <div
+              className="rounded-2xl sm:rounded-3xl overflow-hidden mx-auto lg:mx-0 max-w-md lg:max-w-none"
+              style={{ boxShadow: "var(--card-shadow)" }}
+            >
+              <img
+                src={brandBanner.url}
+                alt="Bsb Market — Buy, Sell & Connect"
+                className="w-full h-auto object-cover"
+                width={540}
+                height={263}
+              />
+            </div>
+            <div className="hidden lg:block">
+              <h2 className="text-3xl font-bold text-foreground mb-4">
+                Your one-stop marketplace
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Buy, sell, hire, and connect with trusted people and businesses — locally and around the world. BSB Market makes trade and business easier for everyone.
+              </p>
+            </div>
           </motion.div>
 
           <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:items-center lg:text-left">
