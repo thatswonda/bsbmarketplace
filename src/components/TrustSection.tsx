@@ -22,6 +22,21 @@ const TrustSection = () => (
   <section className="py-10 sm:py-24 bg-card border-y border-border/50">
     <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
       <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-8 sm:mb-16 rounded-2xl sm:rounded-3xl overflow-hidden"
+        style={{ boxShadow: "var(--card-shadow-hover)" }}
+      >
+        <img
+          src={teamAsset.url}
+          alt="Business team meeting beside a Bsb Market brand banner"
+          className="w-full h-52 sm:h-[420px] object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+
+      <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
