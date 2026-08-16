@@ -260,12 +260,30 @@ const HeroSection = () => {
               );
             })}
 
-            <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 340 420">
-              <motion.path d="M55 50 Q95 100 145 125" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1 }} />
-              <motion.path d="M285 50 Q245 100 195 125" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1.2 }} />
-              <motion.path d="M30 190 Q80 200 140 210" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1.4 }} />
-              <motion.path d="M310 190 Q260 200 200 210" stroke="hsl(var(--primary) / 0.2)" strokeWidth="1" strokeDasharray="4 4" fill="none" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, delay: 1.6 }} />
+            <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+              {[
+                { d: "M9 12 Q24 20 37 30", delay: 1 },
+                { d: "M6 46 Q20 48 35 50", delay: 1.15 },
+                { d: "M9 88 Q24 80 37 70", delay: 1.3 },
+                { d: "M91 12 Q76 20 63 30", delay: 1.45 },
+                { d: "M94 46 Q80 48 65 50", delay: 1.6 },
+                { d: "M91 88 Q76 80 63 70", delay: 1.75 },
+              ].map((p) => (
+                <motion.path
+                  key={p.d}
+                  d={p.d}
+                  stroke="hsl(var(--primary) / 0.35)"
+                  strokeWidth="0.4"
+                  strokeDasharray="1.5 1.5"
+                  fill="none"
+                  vectorEffect="non-scaling-stroke"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 1 }}
+                  transition={{ duration: 1.2, delay: p.delay }}
+                />
+              ))}
             </svg>
+
           </div>
           </div>
 
