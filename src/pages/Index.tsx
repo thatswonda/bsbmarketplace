@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import TrustSection from "@/components/TrustSection";
 import PopularOffers from "@/components/PopularOffers";
 import CategoriesSection from "@/components/CategoriesSection";
-import ExploreServices from "@/components/ExploreServices";
 import HowItWorks from "@/components/HowItWorks";
 import AboutSection from "@/components/AboutSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -30,7 +29,6 @@ const Index = () => (
     </div>
     <PopularOffers />
     <CategoriesSection />
-    <ExploreServices />
     {/* Desktop only HowItWorks (already shown on mobile above) */}
     <div className="hidden sm:block">
       <HowItWorks />
