@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, ShoppingCart, Handshake, Star } from "lucide-react";
+import appUserAsset from "@/assets/bsb-app-user.png.asset.json";
 
 const steps = [
   { icon: Search, title: "Browse & Discover", desc: "Explore thousands of listings across goods, services, jobs, and more in your area or globally." },
@@ -20,6 +21,23 @@ const HowItWorks = () => (
         <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-4">How It Works</h2>
         <p className="text-xs sm:text-base text-muted-foreground max-w-xl mx-auto">Get started in four simple steps and unlock the full power of BSB Market.</p>
       </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="mb-6 sm:mb-16 rounded-2xl sm:rounded-3xl overflow-hidden bg-background"
+        style={{ boxShadow: "var(--card-shadow)" }}
+      >
+        <img
+          src={appUserAsset.url}
+          alt="Woman holding a smartphone showing the Bsb Market app"
+          className="w-full h-56 sm:h-[420px] object-contain"
+          loading="lazy"
+        />
+      </motion.div>
+
+
 
       {/* Desktop: 4-col with connecting line */}
       <div className="hidden md:grid grid-cols-4 gap-8 relative">
