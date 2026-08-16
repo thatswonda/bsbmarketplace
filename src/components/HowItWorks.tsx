@@ -23,20 +23,27 @@ const HowItWorks = () => (
       </motion.div>
 
       <div className="relative">
-        {/* Cut-out app user: top half visible, bottom half sits behind the steps */}
-        <motion.img
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          src={appUserAsset.url}
-          alt="Woman holding a smartphone showing the Bsb Market app"
-          className="pointer-events-none select-none absolute left-1/2 -translate-x-1/2 top-0 z-0 h-64 sm:h-[520px] w-auto object-contain"
-          loading="lazy"
-        />
+        {/* Cut-out app user: top half visible, bottom half blurs into the steps */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-0 flex justify-center">
+          <div className="relative">
+            <motion.img
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              src={appUserAsset.url}
+              alt="Woman holding a smartphone showing the Bsb Market app"
+              className="select-none h-72 sm:h-[600px] w-auto object-contain"
+              loading="lazy"
+            />
+            {/* Blur + fade the lower part that runs behind the steps */}
+            <div className="absolute inset-x-0 bottom-0 h-1/2 backdrop-blur-md bg-gradient-to-b from-transparent via-card/70 to-card" />
+          </div>
+        </div>
 
         {/* Desktop: 4-col with connecting line */}
-        <div className="hidden md:grid grid-cols-4 gap-8 relative z-10 pt-[280px]">
-          <div className="absolute top-12 left-[12.5%] right-[12.5%] h-[2px] bg-border z-0 mt-[280px]" />
+        <div className="hidden md:grid grid-cols-4 gap-8 relative z-10 pt-[340px]">
+          <div className="absolute top-12 left-[12.5%] right-[12.5%] h-[2px] bg-border z-0 mt-[340px]" />
+
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
