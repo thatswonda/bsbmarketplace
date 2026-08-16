@@ -223,8 +223,8 @@ const HeroSection = () => {
                 src={phoneMockup}
                 alt="BSB Market app onboarding screen on a smartphone"
                 className="w-full h-auto"
-                width={704}
-                height={1408}
+                width={526}
+                height={1039}
               />
             </motion.div>
 
