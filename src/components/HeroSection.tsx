@@ -135,6 +135,8 @@ const desktopIconPositions = [
 
 const HeroSection = () => {
   const [selectedLabel, setSelectedLabel] = useState<string | null>(null);
+  const isMobile = useIsMobile();
+  const iconPositions = isMobile ? mobileIconPositions : desktopIconPositions;
   const selectedFeature = features.find(f => f.label === selectedLabel);
   const listings = selectedLabel ? featureListings[selectedLabel] || [] : [];
 
