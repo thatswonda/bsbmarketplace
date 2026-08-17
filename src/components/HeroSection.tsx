@@ -115,13 +115,22 @@ const floatAnimation = (delay: number, x: number, y: number) => ({
 const leftItems = ["Sell anything", "Buy anything", "Hire services", "Offer services"];
 const rightItems = ["Get jobs", "Network", "All about business within your location and globally"];
 
-const iconPositions = [
-  { top: "5%", left: "-6%", x: -30, y: -20 },
-  { top: "38%", left: "-10%", x: -40, y: 0 },
-  { bottom: "10%", left: "-6%", x: -30, y: 20 },
-  { top: "5%", right: "-6%", x: 30, y: -20 },
-  { top: "38%", right: "-10%", x: 40, y: 0 },
-  { bottom: "10%", right: "-6%", x: 30, y: 20 },
+const mobileIconPositions = [
+  { top: "6%", left: "-14%", x: -30, y: -20 },
+  { top: "42%", left: "-20%", x: -40, y: 0 },
+  { bottom: "6%", left: "-14%", x: -30, y: 20 },
+  { top: "6%", right: "-14%", x: 30, y: -20 },
+  { top: "42%", right: "-20%", x: 40, y: 0 },
+  { bottom: "6%", right: "-14%", x: 30, y: 20 },
+];
+
+const desktopIconPositions = [
+  { top: "6%", left: "-20%", x: -30, y: -20 },
+  { top: "40%", left: "-26%", x: -40, y: 0 },
+  { bottom: "6%", left: "-20%", x: -30, y: 20 },
+  { top: "6%", right: "-20%", x: 30, y: -20 },
+  { top: "40%", right: "-26%", x: 40, y: 0 },
+  { bottom: "6%", right: "-20%", x: 30, y: 20 },
 ];
 
 const HeroSection = () => {
