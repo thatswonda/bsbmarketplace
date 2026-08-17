@@ -224,12 +224,12 @@ const HeroSection = () => {
 
 
           {/* Phone mockup with floating icons */}
-          <div className="relative mx-auto w-[340px] sm:w-[440px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
+          <div className="relative mx-auto w-[380px] sm:w-[520px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 80 }}
-              className="relative z-10 mx-auto w-[135px] sm:w-[220px]"
+              className="relative z-10 mx-auto w-[120px] sm:w-[220px]"
             >
               <img
                 src={phoneMockup}
@@ -256,15 +256,15 @@ const HeroSection = () => {
                   }}
                 >
                   <div
-                    className="bg-card rounded-xl p-2 sm:p-3 flex flex-col items-center gap-1 hover:scale-110 transition-transform duration-200"
+                    className="bg-card rounded-xl p-1.5 sm:p-3 flex flex-col items-center gap-1 hover:scale-110 transition-transform duration-200"
                     style={{ boxShadow: "var(--card-shadow)" }}
                   >
                     <img
                       src={feature.icon}
                       alt={feature.label}
-                      className="w-9 h-9 sm:w-12 sm:h-12 object-contain"
+                      className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
                     />
-                    <span className="text-[9px] sm:text-xs font-semibold text-foreground whitespace-nowrap">
+                    <span className="text-[8px] sm:text-xs font-semibold text-foreground whitespace-nowrap">
                       {feature.label}
                     </span>
                   </div>
