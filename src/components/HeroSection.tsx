@@ -217,7 +217,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, type: "spring", stiffness: 80 }}
-              className="relative z-10 mx-auto w-[160px] sm:w-[220px]"
+              className="relative z-10 mx-auto w-[135px] sm:w-[220px]"
             >
               <img
                 src={phoneMockup}
