@@ -36,7 +36,7 @@ const HowItWorks = () => (
               loading="lazy"
             />
             {/* Blur + fade the lower part that runs behind the steps */}
-            <div className="absolute inset-x-0 bottom-0 h-1/2 backdrop-blur-md bg-gradient-to-b from-transparent via-card/70 to-card" />
+            <div className="absolute inset-x-0 bottom-0 h-[30%] backdrop-blur-md bg-gradient-to-b from-transparent via-card/70 to-card" />
           </div>
         </div>
 

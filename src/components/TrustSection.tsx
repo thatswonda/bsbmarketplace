@@ -23,6 +23,23 @@ const TrustSection = () => (
   <section className="py-10 sm:py-24 bg-card border-y border-border/50">
     <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
       <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center max-w-2xl mx-auto mb-6 sm:mb-10"
+      >
+        <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 sm:mb-3">
+          Trust &amp; Safety
+        </span>
+        <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-4">
+          Why people trust BSB Market
+        </h2>
+        <p className="text-xs sm:text-base text-muted-foreground">
+          A marketplace built on verified people, protected payments and support that answers.
+        </p>
+      </motion.div>
+
+      <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -37,22 +54,6 @@ const TrustSection = () => (
         />
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center max-w-2xl mx-auto mb-6 sm:mb-14"
-      >
-        <span className="inline-block text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-primary mb-2 sm:mb-3">
-          Trust &amp; Safety
-        </span>
-        <h2 className="text-xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-2 sm:mb-4">
-          Why people trust BSB Market
-        </h2>
-        <p className="text-xs sm:text-base text-muted-foreground">
-          A marketplace built on verified people, protected payments and support that answers.
-        </p>
-      </motion.div>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {badges.map((b, i) => (
