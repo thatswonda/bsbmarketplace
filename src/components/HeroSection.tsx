@@ -272,14 +272,14 @@ const HeroSection = () => {
               );
             })}
 
-            <svg className="absolute inset-0 w-full h-full z-0 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <svg className="absolute -inset-x-[25%] inset-y-0 w-[150%] h-full z-0 pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
               {[
-                { d: "M9 12 Q24 20 37 30", delay: 1 },
-                { d: "M6 46 Q20 48 35 50", delay: 1.15 },
-                { d: "M9 88 Q24 80 37 70", delay: 1.3 },
-                { d: "M91 12 Q76 20 63 30", delay: 1.45 },
-                { d: "M94 46 Q80 48 65 50", delay: 1.6 },
-                { d: "M91 88 Q76 80 63 70", delay: 1.75 },
+                { d: "M7 8 Q22 20 36 30", delay: 1 },
+                { d: "M4 46 Q20 48 36 50", delay: 1.15 },
+                { d: "M7 88 Q22 80 36 70", delay: 1.3 },
+                { d: "M93 8 Q78 20 64 30", delay: 1.45 },
+                { d: "M96 46 Q80 48 64 50", delay: 1.6 },
+                { d: "M93 88 Q78 80 64 70", delay: 1.75 },
               ].map((p) => (
                 <motion.path
                   key={p.d}
