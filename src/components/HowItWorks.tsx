@@ -64,7 +64,7 @@ const HowItWorks = () => (
         </div>
 
         {/* Mobile: 2x2 grid */}
-        <div className="grid grid-cols-2 gap-3 md:hidden relative z-10 pt-36">
+        <div className="grid grid-cols-2 gap-3 md:hidden relative z-10 pt-44">
           {steps.map((step, i) => (
             <motion.div
               key={step.title}
