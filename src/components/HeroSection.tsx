@@ -11,6 +11,7 @@ import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
 import phoneMockup from "@/assets/phone-mockup-bsb.png";
 import { Check, Eye, Heart, Share2 } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Dialog,
   DialogContent,
