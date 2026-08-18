@@ -56,7 +56,22 @@ const AboutSection = () => (
         </div>
       </div>
 
-      {/* Mobile: compact cards */}
+      {/* Mobile: photo + compact cards */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="md:hidden rounded-2xl overflow-hidden mb-4"
+        style={{ boxShadow: "var(--card-shadow)" }}
+      >
+        <img
+          src={aboutAsset.url}
+          alt="Two professionals sealing a business deal with a handshake"
+          className="w-full h-40 object-cover"
+          loading="lazy"
+        />
+      </motion.div>
+
       <div className="grid grid-cols-2 gap-3 md:hidden">
         {values.map((v, i) => (
           <motion.div
