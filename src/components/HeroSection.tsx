@@ -224,7 +224,7 @@ const HeroSection = () => {
 
 
           {/* Phone mockup with floating icons */}
-          <div className="relative mx-auto w-[380px] sm:w-[520px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
+          <div className="relative mx-auto w-[340px] sm:w-[520px] py-12 sm:py-0 mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
