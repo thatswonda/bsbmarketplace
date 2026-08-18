@@ -28,10 +28,16 @@ const Index = () => (
       <TrustSection />
     </div>
     <PopularOffers />
-    <CategoriesSection />
-    {/* Desktop only HowItWorks (already shown on mobile above) */}
+    {/* Desktop: HowItWorks before Categories */}
     <div className="hidden sm:block">
       <HowItWorks />
+    </div>
+    {/* Mobile: Categories here, desktop after HowItWorks */}
+    <div className="sm:hidden">
+      <CategoriesSection />
+    </div>
+    <div className="hidden sm:block">
+      <CategoriesSection />
     </div>
     <div className="sm:hidden">
       <AboutSection />
