@@ -11,6 +11,7 @@ import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
 import phoneMockup from "@/assets/phone-mockup-bsb.png";
 import { Check, Eye, Heart, Share2 } from "lucide-react";
+import AppStoreButton from "@/components/AppStoreButton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Dialog,
@@ -342,9 +343,7 @@ const HeroSection = () => {
             viewport={{ once: true }}
             className="flex items-center justify-center lg:justify-start gap-3"
           >
-            <button
-              type="button"
-              onClick={() => alert("Coming soon")}
+            <AppStoreButton
               className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-current">
@@ -354,7 +353,7 @@ const HeroSection = () => {
                 <div className="text-[8px] sm:text-[10px] opacity-80">Download on the</div>
                 <div className="text-[11px] sm:text-sm font-semibold -mt-0.5">App Store</div>
               </div>
-            </button>
+            </AppStoreButton>
             <a
               href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
               target="_blank"
