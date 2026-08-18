@@ -17,8 +17,9 @@ const DownloadSection = () => (
           Get our mobile app to access exclusive offers and deals.
         </p>
         <div className="flex items-center justify-center gap-3 sm:gap-4">
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => alert("Coming soon")}
             className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 fill-current">
@@ -28,9 +29,11 @@ const DownloadSection = () => (
               <div className="text-[8px] sm:text-[10px] opacity-80">Download on the</div>
               <div className="text-[10px] sm:text-sm font-semibold -mt-0.5">App Store</div>
             </div>
-          </a>
+          </button>
           <a
-            href="#"
+            href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4 sm:w-6 sm:h-6 fill-current">
