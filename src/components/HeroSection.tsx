@@ -11,6 +11,7 @@ import jobsIcon from "@/assets/jobs-icon.png";
 import networkIcon from "@/assets/network-icon.png";
 import phoneMockup from "@/assets/phone-mockup-bsb.png";
 import { Check, Eye, Heart, Share2 } from "lucide-react";
+import AppStoreButton from "@/components/AppStoreButton";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   Dialog,
@@ -116,12 +117,12 @@ const leftItems = ["Sell anything", "Buy anything", "Hire services", "Offer serv
 const rightItems = ["Get jobs", "Network", "All about business within your location and globally"];
 
 const mobileIconPositions = [
-  { top: "4%", left: "-10%", x: -30, y: -20 },
-  { top: "40%", left: "-14%", x: -40, y: 0 },
-  { bottom: "4%", left: "-10%", x: -30, y: 20 },
-  { top: "4%", right: "-10%", x: 30, y: -20 },
-  { top: "40%", right: "-14%", x: 40, y: 0 },
-  { bottom: "4%", right: "-10%", x: 30, y: 20 },
+  { top: "0%", left: "-4%", x: -30, y: -20 },
+  { top: "40%", left: "-8%", x: -40, y: 0 },
+  { bottom: "0%", left: "-4%", x: -30, y: 20 },
+  { top: "0%", right: "-4%", x: 30, y: -20 },
+  { top: "40%", right: "-8%", x: 40, y: 0 },
+  { bottom: "0%", right: "-4%", x: 30, y: 20 },
 ];
 
 const desktopIconPositions = [
@@ -224,7 +225,7 @@ const HeroSection = () => {
 
 
           {/* Phone mockup with floating icons */}
-          <div className="relative mx-auto w-[380px] sm:w-[520px] mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
+          <div className="relative mx-auto w-[340px] sm:w-[520px] py-12 sm:py-0 mb-8 sm:mb-16" style={{ perspective: "1200px" }}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -256,15 +257,15 @@ const HeroSection = () => {
                   }}
                 >
                   <div
-                    className="bg-card rounded-xl p-1.5 sm:p-3 flex flex-col items-center gap-1 hover:scale-110 transition-transform duration-200"
+                    className="bg-card rounded-xl p-1 sm:p-3 flex flex-col items-center gap-0.5 sm:gap-1 hover:scale-110 transition-transform duration-200"
                     style={{ boxShadow: "var(--card-shadow)" }}
                   >
                     <img
                       src={feature.icon}
                       alt={feature.label}
-                      className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
+                      className="w-6 h-6 sm:w-12 sm:h-12 object-contain"
                     />
-                    <span className="text-[8px] sm:text-xs font-semibold text-foreground whitespace-nowrap">
+                    <span className="text-[7px] sm:text-xs font-semibold text-foreground whitespace-nowrap leading-tight">
                       {feature.label}
                     </span>
                   </div>
@@ -342,9 +343,7 @@ const HeroSection = () => {
             viewport={{ once: true }}
             className="flex items-center justify-center lg:justify-start gap-3"
           >
-            <button
-              type="button"
-              onClick={() => alert("Coming soon")}
+            <AppStoreButton
               className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 sm:w-6 sm:h-6 fill-current">
@@ -354,7 +353,7 @@ const HeroSection = () => {
                 <div className="text-[8px] sm:text-[10px] opacity-80">Download on the</div>
                 <div className="text-[11px] sm:text-sm font-semibold -mt-0.5">App Store</div>
               </div>
-            </button>
+            </AppStoreButton>
             <a
               href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
               target="_blank"

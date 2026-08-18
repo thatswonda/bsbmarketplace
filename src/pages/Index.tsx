@@ -27,11 +27,11 @@ const Index = () => (
       <HowItWorks />
       <TrustSection />
     </div>
-    <PopularOffers />
-    {/* Desktop: HowItWorks before Categories */}
+    {/* Desktop: HowItWorks before Popular listings */}
     <div className="hidden sm:block">
       <HowItWorks />
     </div>
+    <PopularOffers />
     {/* Mobile: Categories here, desktop after HowItWorks */}
     <div className="sm:hidden">
       <CategoriesSection />
