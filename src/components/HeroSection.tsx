@@ -46,6 +46,7 @@ import listingShares1 from "@/assets/listing-shares-1.jpg";
 import listingShares2 from "@/assets/listing-shares-2.jpg";
 import listingShares3 from "@/assets/listing-shares-3.jpg";
 import listingShares4 from "@/assets/listing-shares-4.jpg";
+import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 type Listing = { title: string; desc: string; price: string; views: string; img: string };
 
@@ -355,7 +356,8 @@ const HeroSection = () => {
               </div>
             </AppStoreButton>
             <a
-              href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+              href={PLAY_STORE_URL}
+              onClick={openPlayStore}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity"

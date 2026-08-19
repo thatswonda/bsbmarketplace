@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import AppStoreButton from "@/components/AppStoreButton";
+import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 const DownloadSection = () => (
   <section className="py-6 sm:py-24 bg-card" id="about-us">
@@ -30,7 +31,8 @@ const DownloadSection = () => (
             </div>
           </AppStoreButton>
           <a
-            href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+            href={PLAY_STORE_URL}
+              onClick={openPlayStore}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-foreground text-card rounded-lg sm:rounded-xl font-medium hover:opacity-90 transition-opacity"
@@ -47,7 +49,8 @@ const DownloadSection = () => (
         {/* Mobile Download App CTA */}
         <div className="mt-4 sm:hidden">
           <a
-            href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+            href={PLAY_STORE_URL}
+              onClick={openPlayStore}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-accent text-primary font-semibold rounded-xl text-sm hover:opacity-90 transition-opacity"
