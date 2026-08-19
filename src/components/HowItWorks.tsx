@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Search, ShoppingCart, Handshake, Star } from "lucide-react";
-import appUserAsset from "@/assets/bsb-app-user-cutout.png.asset.json";
+import appUserAsset from "@/assets/bsb-app-user-cutout.png";
 
 const steps = [
   { icon: Search, title: "Browse & Discover", desc: "Explore thousands of listings across goods, services, jobs, and more in your area or globally." },
@@ -30,7 +30,7 @@ const HowItWorks = () => (
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src={appUserAsset.url}
+              src={appUserAsset}
               alt="Woman holding a smartphone showing the Bsb Market app"
               className="select-none h-72 sm:h-[600px] w-auto object-contain"
               loading="lazy"

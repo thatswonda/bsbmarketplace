@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Clock, Globe, Headphones, CreditCard, Lock } from "lucide-react";
-import remoteAsset from "@/assets/remote-work-dubai.png.asset.json";
-import teamAsset from "@/assets/bsb-team-meeting.png.asset.json";
+import remoteAsset from "@/assets/remote-work-dubai.png";
+import teamAsset from "@/assets/bsb-team-meeting.png";
 
 const badges = [
   { icon: ShieldCheck, label: "Verified Listings", desc: "Every listing is screened so you deal with real people and real offers." },
@@ -47,7 +47,7 @@ const TrustSection = () => (
         style={{ boxShadow: "var(--card-shadow-hover)" }}
       >
         <img
-          src={teamAsset.url}
+          src={teamAsset}
           alt="Business team meeting beside a Bsb Market brand banner"
           className="w-full h-52 sm:h-[420px] object-cover"
           loading="lazy"
@@ -84,7 +84,7 @@ const TrustSection = () => (
       >
         <div className="rounded-2xl sm:rounded-3xl overflow-hidden" style={{ boxShadow: "var(--card-shadow-hover)" }}>
           <img
-            src={remoteAsset.url}
+            src={remoteAsset}
             alt="Entrepreneur working remotely on a laptop overlooking a modern city skyline"
             className="w-full h-48 sm:h-[380px] object-cover"
             loading="lazy"

@@ -1,6 +1,6 @@
 import AppStoreButton from "@/components/AppStoreButton";
 import { Link } from "react-router-dom";
-import logoAsset from "@/assets/bsb-logo.png.asset.json";
+import logoAsset from "@/assets/bsb-logo.png";
 import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 const Footer = () => (
@@ -10,7 +10,7 @@ const Footer = () => (
       <div className="hidden md:grid grid-cols-4 gap-8 mb-10">
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src={logoAsset.url} alt="BSB Market logo" className="w-9 h-9 rounded-lg object-contain" loading="lazy" />
+            <img src={logoAsset} alt="BSB Market logo" className="w-9 h-9 rounded-lg object-contain" loading="lazy" />
             <span className="text-xl font-bold text-foreground">Bsb <span className="text-primary">Market</span></span>
           </div>
 
