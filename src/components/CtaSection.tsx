@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import AppStoreButton from "@/components/AppStoreButton";
-import ctaAsset from "@/assets/parcels-shipping.png.asset.json";
+import ctaAsset from "@/assets/parcels-shipping.png";
 import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 const CtaSection = () => (
@@ -8,7 +8,7 @@ const CtaSection = () => (
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       {/* Desktop */}
       <div className="hidden md:block relative rounded-3xl overflow-hidden" style={{ boxShadow: "var(--card-shadow-hover)" }}>
-        <img src={ctaAsset.url} alt="Packed parcels ready for dispatch to buyers" className="w-full h-[400px] object-cover" loading="lazy" width={1280} height={720} />
+        <img src={ctaAsset} alt="Packed parcels ready for dispatch to buyers" className="w-full h-[400px] object-cover" loading="lazy" width={1280} height={720} />
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-transparent" />
         <div className="absolute inset-0 flex items-center">
           <div className="px-12 max-w-lg">

@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { Eye, Heart, Share2 } from "lucide-react";
-import spaAsset from "@/assets/service-spa.jpg.asset.json";
-import photoAsset from "@/assets/service-photography.webp.asset.json";
-import webdevAsset from "@/assets/service-webdev.jpg.asset.json";
-import fitnessAsset from "@/assets/service-fitness.webp.asset.json";
+import spaAsset from "@/assets/service-spa.jpg";
+import photoAsset from "@/assets/service-photography.webp";
+import webdevAsset from "@/assets/service-webdev.jpg";
+import fitnessAsset from "@/assets/service-fitness.webp";
 
 const offers = [
-  { img: spaAsset.url, title: "Luxury Spa", desc: "Relax and rejuvenate with our premium spa treatments and wellness packages.", price: "$ 30", views: "17,223" },
-  { img: fitnessAsset.url, title: "Fitness Workshop", desc: "Get in shape with guided workout sessions from certified fitness coaches.", price: "$ 90", views: "17,223" },
-  { img: photoAsset.url, title: "Professional Photography", desc: "Capture your special moments with expert photographers.", price: "from $100", views: "8,450" },
-  { img: webdevAsset.url, title: "Website Development", desc: "Modern, responsive websites built by professional developers.", price: "from $300", views: "12,891" },
+  { img: spaAsset, title: "Luxury Spa", desc: "Relax and rejuvenate with our premium spa treatments and wellness packages.", price: "$ 30", views: "17,223" },
+  { img: fitnessAsset, title: "Fitness Workshop", desc: "Get in shape with guided workout sessions from certified fitness coaches.", price: "$ 90", views: "17,223" },
+  { img: photoAsset, title: "Professional Photography", desc: "Capture your special moments with expert photographers.", price: "from $100", views: "8,450" },
+  { img: webdevAsset, title: "Website Development", desc: "Modern, responsive websites built by professional developers.", price: "from $300", views: "12,891" },
 ];
 
 const PopularOffers = () => (

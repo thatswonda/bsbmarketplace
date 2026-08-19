@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import brandBanner from "@/assets/bsb-banner.png.asset.json";
+import brandBanner from "@/assets/bsb-banner.png";
 
 import sellIcon from "@/assets/sell-icon.png";
 import buyIcon from "@/assets/buy-icon.png";
@@ -179,7 +179,7 @@ const HeroSection = () => {
               style={{ boxShadow: "var(--card-shadow)" }}
             >
               <img
-                src={brandBanner.url}
+                src={brandBanner}
                 alt="Bsb Market — Buy, Sell & Connect"
                 className="w-full h-auto object-cover"
                 width={540}

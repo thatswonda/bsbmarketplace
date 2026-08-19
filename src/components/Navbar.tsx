@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoAsset from "@/assets/bsb-logo.png.asset.json";
+import logoAsset from "@/assets/bsb-logo.png";
 
 
 const navLinks = [
@@ -36,7 +36,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 sm:h-16">
         <a href="#home" onClick={(e) => handleClick(e, "#home")} className="flex items-center gap-2">
-          <img src={logoAsset.url} alt="BSB Market logo" className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg object-contain" />
+          <img src={logoAsset} alt="BSB Market logo" className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg object-contain" />
           <span className="text-lg sm:text-xl font-bold tracking-tight text-foreground">
             Bsb <span className="text-primary">Market</span>
           </span>
