@@ -63,6 +63,9 @@ const Footer = () => (
 
       {/* Bottom bar */}
       <div className="md:border-t md:border-border/50 md:pt-6 text-center space-y-2">
+        <p className="text-xs text-muted-foreground">
+          23 Urua Udofia, Uyo Akwaibom State.
+        </p>
         <p className="text-sm text-muted-foreground">
           &copy; {new Date().getFullYear()} BSB Market, a product of BSB Global Tech Ltd.
         </p>
