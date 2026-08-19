@@ -117,12 +117,12 @@ const leftItems = ["Sell anything", "Buy anything", "Hire services", "Offer serv
 const rightItems = ["Get jobs", "Network", "All about business within your location and globally"];
 
 const mobileIconPositions = [
-  { top: "0%", left: "-4%", x: -30, y: -20 },
-  { top: "40%", left: "-8%", x: -40, y: 0 },
-  { bottom: "0%", left: "-4%", x: -30, y: 20 },
-  { top: "0%", right: "-4%", x: 30, y: -20 },
-  { top: "40%", right: "-8%", x: 40, y: 0 },
-  { bottom: "0%", right: "-4%", x: 30, y: 20 },
+  { top: "0%", left: "1%", x: -30, y: -20 },
+  { top: "40%", left: "-2%", x: -40, y: 0 },
+  { bottom: "0%", left: "1%", x: -30, y: 20 },
+  { top: "0%", right: "1%", x: 30, y: -20 },
+  { top: "40%", right: "-2%", x: 40, y: 0 },
+  { bottom: "0%", right: "1%", x: 30, y: 20 },
 ];
 
 const desktopIconPositions = [
