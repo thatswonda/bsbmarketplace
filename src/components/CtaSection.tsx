@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import AppStoreButton from "@/components/AppStoreButton";
 import ctaAsset from "@/assets/parcels-shipping.png.asset.json";
+import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 const CtaSection = () => (
   <section className="py-6 sm:py-24 bg-card">
@@ -42,7 +43,8 @@ const CtaSection = () => (
                 App Store
               </AppStoreButton>
               <a
-                href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+                href={PLAY_STORE_URL}
+              onClick={openPlayStore}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-primary-foreground text-foreground rounded-xl font-medium hover:opacity-90 transition-opacity"
@@ -74,7 +76,8 @@ const CtaSection = () => (
             App Store
           </AppStoreButton>
           <a
-            href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+            href={PLAY_STORE_URL}
+              onClick={openPlayStore}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 px-3 py-2 bg-primary-foreground text-foreground rounded-lg text-xs font-medium hover:opacity-90 transition-opacity"

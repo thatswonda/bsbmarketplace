@@ -6,6 +6,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 interface AppStoreButtonProps {
   className?: string;
@@ -31,7 +32,8 @@ const AppStoreButton = ({ className, children }: AppStoreButtonProps) => {
             </DialogDescription>
           </DialogHeader>
           <a
-            href="https://play.google.com/store/apps/details?id=com.austindev.bsb&pcampaignid=web_share"
+            href={PLAY_STORE_URL}
+              onClick={openPlayStore}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-4 py-2.5 bg-primary text-primary-foreground rounded-xl text-sm font-semibold hover:opacity-90 transition-opacity"
