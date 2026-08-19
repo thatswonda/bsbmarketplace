@@ -1,12 +1,12 @@
 import { useState, ReactNode } from "react";
 import {
-import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
+import { PLAY_STORE_URL, openPlayStore } from "@/lib/appLinks";
 
 interface AppStoreButtonProps {
   className?: string;
